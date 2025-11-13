@@ -251,6 +251,42 @@ const productsData = [
     }
 ];
 
+const categoryLabels = {
+    "препарати": "Растителна защита",
+    "торове": "Торове",
+    "семена": "Семена",
+    "фуражи": "Фуражи",
+    "инвентар": "Инвентар"
+};
+
+function getCategoryLabel(category) {
+    return categoryLabels[category] || category;
+}
+
+function getAvailabilityMeta(category) {
+    switch (category) {
+        case "препарати":
+            return { label: "В наличност", className: "badge badge-success" };
+        case "торове":
+            return { label: "Доставка до 48ч", className: "badge badge-info" };
+        case "семена":
+            return { label: "Предсезонна заявка", className: "badge badge-warning" };
+        case "фуражи":
+            return { label: "В склад", className: "badge badge-success" };
+        case "инвентар":
+            return { label: "По заявка", className: "badge badge-warning" };
+        default:
+            return { label: "Наличност", className: "badge badge-info" };
+    }
+}
+
+function formatCultures(cultures) {
+    if (!cultures || cultures.length === 0) {
+        return "Универсално приложение";
+    }
+    return cultures.map(culture => culture.charAt(0).toUpperCase() + culture.slice(1)).join(", ");
+}
+
 // Function to render products
 function renderProducts(products) {
     const grid = document.getElementById('products-grid');
@@ -267,36 +303,54 @@ function renderProducts(products) {
     grid.classList.remove('hidden');
     noResults.classList.add('hidden');
     
-    grid.innerHTML = products.map(product => `
-        <div class="product-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1" data-category="${product.category}">
-            <div class="bg-white p-4 flex items-center justify-center h-48 overflow-hidden">
-                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain">
-            </div>
-            <div class="p-6">
-                <h3 class="text-xl font-bold text-agro-dark mb-2">${product.name}</h3>
-                <p class="text-gray-600 text-sm mb-4 h-12 overflow-hidden">${product.description}</p>
-                
-                <div class="mb-4">
-                    ${product.features.map(feature => `
-                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-1 mb-1">
-                            ${feature}
-                        </span>
-                    `).join('')}
+    grid.innerHTML = products.map(product => {
+        const availability = getAvailabilityMeta(product.category);
+        const cultures = formatCultures(product.culture);
+        const featureTags = product.features.map(feature => `
+            <span class="product-tag">${feature}</span>
+        `).join('');
+        return `
+            <article class="product-card relative flex h-full flex-col rounded-3xl border border-agro-light bg-white shadow-md transition hover:-translate-y-1 hover:shadow-2xl" data-category="${product.category}">
+                <div class="absolute left-6 top-5 flex flex-wrap items-center gap-2">
+                    <span class="${availability.className}">${availability.label}</span>
                 </div>
-                
-                <div class="flex items-center justify-between mb-4">
+                <div class="absolute right-6 top-5">
+                    <span class="category-chip">${getCategoryLabel(product.category)}</span>
+                </div>
+                <div class="product-media relative h-48 overflow-hidden rounded-3xl bg-agro-light/60">
+                    <img src="${product.image}" alt="${product.name}" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-agro-dark/10 via-transparent to-transparent"></div>
+                </div>
+                <div class="flex flex-1 flex-col gap-4 p-6">
                     <div>
-                        <span class="text-2xl font-bold text-agro-green">${product.price.toFixed(2)} лв</span>
-                        <span class="text-gray-500 text-sm">/ ${product.unit}</span>
+                        <h3 class="text-xl font-bold text-agro-dark">${product.name}</h3>
+                        <p class="product-desc mt-2 text-sm text-gray-600">${product.description}</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        ${featureTags}
+                    </div>
+                    <div class="rounded-2xl bg-agro-light/60 p-4 text-sm text-gray-600">
+                        <span class="font-semibold text-agro-dark">Подходящ за:</span> ${cultures}
+                    </div>
+                    <div class="mt-auto flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <p class="text-xs uppercase tracking-wide text-gray-500">Цена</p>
+                            <p class="text-2xl font-bold text-agro-green">${product.price.toFixed(2)} лв</p>
+                            <p class="text-sm text-gray-500">/ ${product.unit}</p>
+                        </div>
+                        <div class="flex w-full flex-col gap-2 sm:w-48">
+                            <button type="button" onclick="openInquiryModal(${JSON.stringify(product.name)})" class="product-btn-primary">
+                                <i class="fas fa-envelope mr-2"></i>Запитване
+                            </button>
+                            <button type="button" onclick="shareProduct(${JSON.stringify(product.name)})" class="product-btn-secondary">
+                                <i class="fas fa-share-alt mr-2"></i>Сподели
+                            </button>
+                        </div>
                     </div>
                 </div>
-                
-                <button onclick="openInquiryModal('${product.name}')" class="w-full bg-agro-green text-white px-4 py-3 rounded-lg font-semibold hover:bg-agro-green-dark transition">
-                    <i class="fas fa-envelope mr-2"></i>Запитване
-                </button>
-            </div>
-        </div>
-    `).join('');
+            </article>
+        `;
+    }).join('');
 }
 
 // Function to filter products
