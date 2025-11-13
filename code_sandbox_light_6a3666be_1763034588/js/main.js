@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add active nav link highlighting on scroll
     highlightActiveNavLink();
+    setupTestimonials();
+    setupFaqAccordion();
+    setupScrollToCatalog();
 });
 
 // Setup form handlers
@@ -219,9 +222,9 @@ window.addEventListener('load', function() {
 // Add parallax effect to hero section (optional)
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
-    const hero = document.querySelector('#home');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    const heroVisual = document.querySelector('#home .hero-visual');
+    if (heroVisual) {
+        heroVisual.style.transform = `translateY(${scrolled * 0.08}px)`;
     }
 });
 
@@ -401,3 +404,120 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSearch();
     console.log('Агроаптека Агреа - Website loaded successfully');
 });
+
+// Testimonials slider
+function setupTestimonials() {
+    const track = document.getElementById('testimonial-track');
+    const wrapper = document.getElementById('testimonial-wrapper');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    const navButtons = document.querySelectorAll('.testimonial-nav');
+
+    if (!track || !wrapper || dots.length === 0) {
+        return;
+    }
+
+    let index = 0;
+    const total = dots.length;
+    let autoplayTimer;
+
+    function goToSlide(targetIndex) {
+        index = (targetIndex + total) % total;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('active', dotIndex === index);
+            dot.setAttribute('aria-current', dotIndex === index ? 'true' : 'false');
+        });
+    }
+
+    function nextSlide() {
+        goToSlide(index + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(index - 1);
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(nextSlide, 7000);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const direction = button.dataset.direction;
+            if (direction === 'next') {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+            startAutoplay();
+        });
+    });
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const dotIndex = Number(dot.dataset.index);
+            goToSlide(dotIndex);
+            startAutoplay();
+        });
+    });
+
+    wrapper.addEventListener('mouseenter', stopAutoplay);
+    wrapper.addEventListener('mouseleave', startAutoplay);
+
+    window.addEventListener('resize', () => {
+        goToSlide(index);
+    });
+
+    goToSlide(0);
+    startAutoplay();
+}
+
+// FAQ accordion
+function setupFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (!faqItems.length) {
+        return;
+    }
+
+    faqItems.forEach(item => {
+        const toggle = item.querySelector('.faq-toggle');
+        const content = item.querySelector('.faq-content');
+        const icon = toggle?.querySelector('i');
+
+        if (!toggle || !content) {
+            return;
+        }
+
+        toggle.addEventListener('click', () => {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!isExpanded));
+            content.classList.toggle('open', !isExpanded);
+            if (icon) {
+                icon.classList.toggle('fa-plus', isExpanded);
+                icon.classList.toggle('fa-minus', !isExpanded);
+            }
+        });
+    });
+}
+
+// Scroll indicator on hero
+function setupScrollToCatalog() {
+    const scrollButton = document.getElementById('scroll-to-catalog');
+    const catalogSection = document.getElementById('catalog');
+
+    if (!scrollButton || !catalogSection) {
+        return;
+    }
+
+    scrollButton.addEventListener('click', () => {
+        catalogSection.scrollIntoView({ behavior: 'smooth' });
+    });
+}
