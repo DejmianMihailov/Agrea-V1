@@ -1,0 +1,45 @@
+{
+  "name": "Агроаптека Агреа",
+  "short_name": "Агреа",
+  "description": "Професионални агро решения в Дългопол - препарати, торове, семена и консултации",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E8E4D9",
+  "theme_color": "#4CAF50",
+  "orientation": "portrait-primary",
+  "lang": "bg",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "agriculture",
+    "shopping",
+    "business"
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "platform": "narrow"
+    },
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide"
+    }
+  ]
+}

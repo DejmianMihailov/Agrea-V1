@@ -1,0 +1,391 @@
+// Product Data for Agro Apteka Agrea
+const productsData = [
+    // Препарати за растителна защита
+    {
+        id: 1,
+        name: "Калипсо 480 SC",
+        category: "препарати",
+        culture: ["зърнени", "зеленчуци", "овощни"],
+        price: 45.90,
+        unit: "100 мл",
+        description: "Инсектицид за борба с листни въшки, трипс и бяла мушица",
+        features: ["Бързо действие", "Системно действие", "Дълъг защитен период"],
+        activeSubstance: "Тиаклоприд 480 g/l",
+        image: "images/products/pesticide.jpg"
+    },
+    {
+        id: 2,
+        name: "Ридомил Голд МЦ 68 WP",
+        category: "препарати",
+        culture: ["зеленчуци", "лозя"],
+        price: 38.50,
+        unit: "1 кг",
+        description: "Фунгицид за борба с мана по домати, картофи и лозя",
+        features: ["Контактно и системно действие", "Превантивна защита", "Високо ефективен"],
+        activeSubstance: "Манкозеб + Металаксил-М",
+        image: "images/products/pesticide.jpg"
+    },
+    {
+        id: 3,
+        name: "Карате Зеон 5 CS",
+        category: "препарати",
+        culture: ["зърнени", "зеленчуци", "овощни"],
+        price: 52.00,
+        unit: "1 л",
+        description: "Инсектицид с широк спектър на действие",
+        features: ["Микрокапсулна формулация", "Безопасен за полезни насекоми", "Устойчив на дъжд"],
+        activeSubstance: "Ламбда-цихалотрин 50 g/l",
+        image: "images/products/pesticide.jpg"
+    },
+    {
+        id: 4,
+        name: "Галера 334 SL",
+        category: "препарати",
+        culture: ["зърнени"],
+        price: 68.00,
+        unit: "5 л",
+        description: "Хербицид за борба с широколистни и треви в пшеница и ечемик",
+        features: ["Селективен", "Бързо действие", "Отлична толерантност"],
+        activeSubstance: "Пироксулам + Клоквинтосет-мексил + Флорасулам",
+        image: "images/products/pesticide.jpg"
+    },
+    {
+        id: 5,
+        name: "Топсин М 70 WP",
+        category: "препарати",
+        culture: ["овощни", "лозя", "зеленчуци"],
+        price: 34.90,
+        unit: "1 кг",
+        description: "Системен фунгицид срещу парша и мана",
+        features: ["Системно действие", "Лечебно и защитно", "Универсален"],
+        activeSubstance: "Тиофанат метил 700 g/kg",
+        image: "images/products/pesticide.jpg"
+    },
+
+    // Торове и подхранване
+    {
+        id: 6,
+        name: "Амониева селитра 34%",
+        category: "торове",
+        culture: ["зърнени", "зеленчуци", "овощни"],
+        price: 42.00,
+        unit: "25 кг",
+        description: "Азотен тор за подхранване във всички фази на развитие",
+        features: ["Бързо усвояване", "Подходящ за всички култури", "Високо съдържание на азот"],
+        activeSubstance: "NH4NO3 - 34% N",
+        image: "images/products/fertilizer.jpg"
+    },
+    {
+        id: 7,
+        name: "NPK 15-15-15",
+        category: "торове",
+        culture: ["зърнени", "зеленчуци", "овощни"],
+        price: 38.00,
+        unit: "25 кг",
+        description: "Комплексен минерален тор за основно подхранване",
+        features: ["Балансирана формула", "За всички култури", "Универсално приложение"],
+        activeSubstance: "15% N, 15% P2O5, 15% K2O",
+        image: "images/products/fertilizer.jpg"
+    },
+    {
+        id: 8,
+        name: "Монокалиев фосфат",
+        category: "торове",
+        culture: ["зеленчуци", "овощни"],
+        price: 56.00,
+        unit: "25 кг",
+        description: "Тор за листно подхранване с фосфор и калий",
+        features: ["Водоразтворим", "За листно подхранване", "Подобрява качеството"],
+        activeSubstance: "52% P2O5, 34% K2O",
+        image: "images/products/fertilizer.jpg"
+    },
+    {
+        id: 9,
+        name: "Уреа 46%",
+        category: "торове",
+        culture: ["зърнени", "зеленчуци"],
+        price: 44.00,
+        unit: "25 кг",
+        description: "Високоефективен азотен тор",
+        features: ["Най-високо съдържание на азот", "Икономичен", "Бързо действие"],
+        activeSubstance: "CO(NH2)2 - 46% N",
+        image: "images/products/fertilizer.jpg"
+    },
+    {
+        id: 10,
+        name: "Фолиум Комплекс",
+        category: "торове",
+        culture: ["зеленчуци", "овощни", "лозя"],
+        price: 28.50,
+        unit: "5 л",
+        description: "Течен тор за листно подхранване с микроелементи",
+        features: ["Пълен комплекс микроелементи", "Бързо усвояване", "Стимулира растежа"],
+        activeSubstance: "NPK + микроелементи",
+        image: "images/products/fertilizer.jpg"
+    },
+
+    // Семена
+    {
+        id: 11,
+        name: "Пшеница Садово 1",
+        category: "семена",
+        culture: ["зърнени"],
+        price: 85.00,
+        unit: "50 кг",
+        description: "Зимна хлебна пшеница с висок потенциал",
+        features: ["Висок добив", "Добро качество", "Устойчива на полягане"],
+        activeSubstance: "Сертифицирани семена",
+        image: "images/products/seeds.jpg"
+    },
+    {
+        id: 12,
+        name: "Царевица Неркосид",
+        category: "семена",
+        culture: ["зърнени"],
+        price: 120.00,
+        unit: "един. 50 000 семена",
+        description: "Раннозрял хибрид със стабилен добив",
+        features: ["ФАО 400", "Устойчивост на суша", "Високо качество на зърното"],
+        activeSubstance: "F1 хибрид",
+        image: "images/products/seeds.jpg"
+    },
+    {
+        id: 13,
+        name: "Слънчоглед Ориоле",
+        category: "семена",
+        culture: ["зърнени"],
+        price: 95.00,
+        unit: "един. 150 000 семена",
+        description: "Високомаслен хибрид с Clearfield технология",
+        features: ["Clearfield технология", "Високо маслено съдържание", "Толерантност към хербициди"],
+        activeSubstature: "F1 хибрид",
+        image: "images/products/seeds.jpg"
+    },
+    {
+        id: 14,
+        name: "Домати Берлога F1",
+        category: "семена",
+        culture: ["зеленчуци"],
+        price: 18.50,
+        unit: "1000 семена",
+        description: "Хибриден сорт за оранжерийно и полско отглеждане",
+        features: ["Ранен", "Високопродуктивен", "Устойчив на болести"],
+        activeSubstance: "F1 хибрид",
+        image: "images/products/seeds.jpg"
+    },
+
+    // Фуражи
+    {
+        id: 15,
+        name: "Царевична каша",
+        category: "фуражи",
+        culture: [],
+        price: 32.00,
+        unit: "25 кг",
+        description: "Високоенергиен фураж за животни",
+        features: ["Висока енергийна стойност", "Добра смилаемост", "За всички видове животни"],
+        activeSubstance: "Мляна царевица",
+        image: "images/products/feed.jpg"
+    },
+    {
+        id: 16,
+        name: "Пълнодебен екструдиран фураж за свине",
+        category: "фуражи",
+        culture: [],
+        price: 48.00,
+        unit: "25 кг",
+        description: "Балансиран фураж за угояване на свине",
+        features: ["Пълноценно хранене", "Високопротеинов", "Отлично усвояване"],
+        activeSubstance: "Комплексна смес",
+        image: "images/products/feed.jpg"
+    },
+    {
+        id: 17,
+        name: "Люцернов сенаж",
+        category: "фуражи",
+        culture: [],
+        price: 15.00,
+        unit: "бала ~20 кг",
+        description: "Качествен сенаж от люцерна",
+        features: ["Висок протеин", "Богат на минерали", "За преживни животни"],
+        activeSubstance: "Сушена люцерна",
+        image: "images/products/feed.jpg"
+    },
+
+    // Инвентар и оборудване
+    {
+        id: 18,
+        name: "Пръскачка налегателна 16л",
+        category: "инвентар",
+        culture: [],
+        price: 85.00,
+        unit: "1 бр",
+        description: "Гръбна пръскачка с налягане за градини",
+        features: ["Висококачествена", "Регулируем разпръсквач", "Здрав материал"],
+        activeSubstance: "Пластмасов резервоар",
+        image: "images/products/sprayer.jpg"
+    },
+    {
+        id: 19,
+        name: "Градински ръкавици",
+        category: "инвентар",
+        culture: [],
+        price: 8.50,
+        unit: "чифт",
+        description: "Защитни ръкавици за градинска работа",
+        features: ["Издръжливи", "Удобни", "Защита от наранявания"],
+        activeSubstance: "Текстил с каучукова покривка",
+        image: "images/products/sprayer.jpg"
+    },
+    {
+        id: 20,
+        name: "Секатор професионален",
+        category: "инвентар",
+        culture: [],
+        price: 32.00,
+        unit: "1 бр",
+        description: "Професионален секатор за рязане и подрязване",
+        features: ["Остър и прецизен", "Ергономична дръжка", "Дълготраен"],
+        activeSubstance: "Стомана с тефлоново покритие",
+        image: "images/products/sprayer.jpg"
+    }
+];
+
+// Function to render products
+function renderProducts(products) {
+    const grid = document.getElementById('products-grid');
+    const noResults = document.getElementById('no-results');
+    
+    if (!grid) return;
+    
+    if (products.length === 0) {
+        grid.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        return;
+    }
+    
+    grid.classList.remove('hidden');
+    noResults.classList.add('hidden');
+    
+    grid.innerHTML = products.map(product => `
+        <div class="product-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1" data-category="${product.category}">
+            <div class="bg-white p-4 flex items-center justify-center h-48 overflow-hidden">
+                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-agro-dark mb-2">${product.name}</h3>
+                <p class="text-gray-600 text-sm mb-4 h-12 overflow-hidden">${product.description}</p>
+                
+                <div class="mb-4">
+                    ${product.features.map(feature => `
+                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-1 mb-1">
+                            ${feature}
+                        </span>
+                    `).join('')}
+                </div>
+                
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-2xl font-bold text-agro-green">${product.price.toFixed(2)} лв</span>
+                        <span class="text-gray-500 text-sm">/ ${product.unit}</span>
+                    </div>
+                </div>
+                
+                <button onclick="openInquiryModal('${product.name}')" class="w-full bg-agro-green text-white px-4 py-3 rounded-lg font-semibold hover:bg-agro-green-dark transition">
+                    <i class="fas fa-envelope mr-2"></i>Запитване
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Function to filter products
+function filterProducts() {
+    const searchTerm = document.getElementById('product-search')?.value.toLowerCase() || '';
+    const categoryFilter = document.getElementById('category-filter')?.value || '';
+    const cultureFilter = document.getElementById('culture-filter')?.value || '';
+    
+    let filtered = productsData;
+    
+    // Filter by search term
+    if (searchTerm) {
+        filtered = filtered.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm)
+        );
+    }
+    
+    // Filter by category
+    if (categoryFilter) {
+        filtered = filtered.filter(product => product.category === categoryFilter);
+    }
+    
+    // Filter by culture
+    if (cultureFilter) {
+        filtered = filtered.filter(product => 
+            product.culture.includes(cultureFilter) || product.culture.length === 0
+        );
+    }
+    
+    renderProducts(filtered);
+}
+
+// Function to open inquiry modal
+function openInquiryModal(productName) {
+    // For now, we'll scroll to the contact form
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Pre-fill the message
+        setTimeout(() => {
+            const messageField = document.querySelector('#contact-form textarea[name="message"]');
+            if (messageField) {
+                messageField.value = `Здравейте, интересувам се от продукт: ${productName}\n\n`;
+                messageField.focus();
+            }
+        }, 500);
+    }
+}
+
+// Initialize products on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Render all products initially
+    renderProducts(productsData);
+    
+    // Add event listeners for filters
+    const searchInput = document.getElementById('product-search');
+    const categorySelect = document.getElementById('category-filter');
+    const cultureSelect = document.getElementById('culture-filter');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', filterProducts);
+    }
+    
+    if (categorySelect) {
+        categorySelect.addEventListener('change', filterProducts);
+    }
+    
+    if (cultureSelect) {
+        cultureSelect.addEventListener('change', filterProducts);
+    }
+    
+    // Add click handlers for category cards
+    const categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const category = this.dataset.category;
+            const categorySelect = document.getElementById('category-filter');
+            if (categorySelect) {
+                categorySelect.value = category;
+                filterProducts();
+                
+                // Scroll to catalog
+                const catalogSection = document.getElementById('catalog');
+                if (catalogSection) {
+                    catalogSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+});

@@ -1,0 +1,21 @@
+# Robots.txt for Agro Apteka Agrea
+
+User-agent: *
+Allow: /
+
+# Sitemap location (to be added)
+# Sitemap: https://your-domain.com/sitemap.xml
+
+# Block access to development files
+Disallow: /README.md
+Disallow: /.gitignore
+Disallow: /node_modules/
+
+# Allow search engines to crawl important sections
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Crawl delay (optional, adjust as needed)
+Crawl-delay: 1
