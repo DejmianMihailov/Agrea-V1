@@ -1,10 +1,81 @@
 // Main JavaScript for Agro Apteka Agrea Website
 
+const THEME_STORAGE_KEY = 'theme';
+const themeMediaQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+
+function getStoredTheme() {
+    return localStorage.getItem(THEME_STORAGE_KEY);
+}
+
+function resolvePreferredTheme() {
+    return themeMediaQuery && themeMediaQuery.matches ? 'dark' : 'light';
+}
+
+function updateThemeToggleIcons(theme) {
+    const toggles = document.querySelectorAll('[data-theme-toggle]');
+    toggles.forEach(toggle => {
+        const sun = toggle.querySelector('[data-theme-icon="sun"]');
+        const moon = toggle.querySelector('[data-theme-icon="moon"]');
+        if (sun && moon) {
+            if (theme === 'dark') {
+                sun.classList.remove('hidden');
+                moon.classList.add('hidden');
+            } else {
+                sun.classList.add('hidden');
+                moon.classList.remove('hidden');
+            }
+        }
+        toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    });
+}
+
+function applyTheme(theme, options = { save: true }) {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+        root.classList.add('dark');
+    } else {
+        root.classList.remove('dark');
+    }
+    if (options.save) {
+        localStorage.setItem(THEME_STORAGE_KEY, theme);
+    }
+    updateThemeToggleIcons(theme);
+}
+
+function initThemeToggle() {
+    const storedTheme = getStoredTheme();
+    const initialTheme = storedTheme || (document.documentElement.classList.contains('dark') ? 'dark' : resolvePreferredTheme());
+    applyTheme(initialTheme, { save: Boolean(storedTheme) });
+
+    const toggles = document.querySelectorAll('[data-theme-toggle]');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme, { save: true });
+        });
+    });
+
+    if (themeMediaQuery && typeof themeMediaQuery.addEventListener === 'function') {
+        themeMediaQuery.addEventListener('change', event => {
+            if (getStoredTheme()) return;
+            applyTheme(event.matches ? 'dark' : 'light', { save: false });
+        });
+    } else if (themeMediaQuery && typeof themeMediaQuery.addListener === 'function') {
+        themeMediaQuery.addListener(event => {
+            if (getStoredTheme()) return;
+            applyTheme(event.matches ? 'dark' : 'light', { save: false });
+        });
+    }
+}
+
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
+    initThemeToggle();
+
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');

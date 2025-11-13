@@ -21,6 +21,7 @@
     
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -36,55 +37,74 @@
             }
         }
     </script>
+    <script>
+        (function() {
+            const storedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 </head>
-<body class="font-inter">
+<body class="font-inter bg-white text-agro-dark transition-colors duration-300 dark:bg-slate-900 dark:text-gray-100">
     
     <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50 transition-colors duration-300 dark:bg-slate-900 dark:shadow-lg">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-3">
                     <img src="images/logo.png" alt="Агреа Лого" class="h-12 w-12 object-contain">
-                    <div>
-                        <h1 class="text-2xl font-bold text-agro-dark">Агреа</h1>
-                        <p class="text-xs text-gray-600">Агроаптека Дългопол</p>
+                    <div class="transition-colors duration-300">
+                        <h1 class="text-2xl font-bold text-agro-dark dark:text-white">Агреа</h1>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Агроаптека Дългопол</p>
                     </div>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-agro-dark hover:text-agro-green transition">Начало</a>
-                    <a href="#catalog" class="text-agro-dark hover:text-agro-green transition">Каталог</a>
-                    <a href="#trust" class="text-agro-dark hover:text-agro-green transition">Защо нас</a>
-                    <a href="#ask-agronomist" class="text-agro-dark hover:text-agro-green transition">Питай агронома</a>
-                    <a href="#blog" class="text-agro-dark hover:text-agro-green transition">Блог</a>
-                    <a href="#about" class="text-agro-dark hover:text-agro-green transition">За нас</a>
-                    <a href="#faq" class="text-agro-dark hover:text-agro-green transition">Въпроси</a>
-                    <a href="#contact" class="text-agro-dark hover:text-agro-green transition">Контакти</a>
+                    <a href="#home" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Начало</a>
+                    <a href="#catalog" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Каталог</a>
+                    <a href="#trust" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Защо нас</a>
+                    <a href="#ask-agronomist" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Питай агронома</a>
+                    <a href="#blog" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Блог</a>
+                    <a href="#about" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">За нас</a>
+                    <a href="#faq" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Въпроси</a>
+                    <a href="#contact" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Контакти</a>
                 </div>
                 
-                <!-- Contact Button -->
-                <a href="tel:0885227915" class="hidden md:flex items-center space-x-2 bg-agro-green text-white px-6 py-2 rounded-full hover:bg-agro-green-dark transition">
-                    <i class="fas fa-phone"></i>
-                    <span>0885 227 915</span>
-                </a>
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="theme-toggle-desktop" data-theme-toggle aria-label="Превключи тема" class="flex items-center justify-center w-11 h-11 rounded-full border border-gray-200 text-agro-dark transition hover:bg-agro-light dark:border-slate-700 dark:text-gray-100 dark:hover:bg-slate-800">
+                        <i class="fas fa-sun text-lg hidden" data-theme-icon="sun"></i>
+                        <i class="fas fa-moon text-lg" data-theme-icon="moon"></i>
+                    </button>
+                    <a href="tel:0885227915" class="flex items-center space-x-2 bg-agro-green text-white px-6 py-2 rounded-full hover:bg-agro-green-dark transition">
+                        <i class="fas fa-phone"></i>
+                        <span>0885 227 915</span>
+                    </a>
+                </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-agro-dark text-2xl">
+                <button id="mobile-menu-btn" class="md:hidden text-agro-dark text-2xl dark:text-gray-100">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-3">
-                <a href="#home" class="block text-agro-dark hover:text-agro-green transition py-2">Начало</a>
-                <a href="#catalog" class="block text-agro-dark hover:text-agro-green transition py-2">Каталог</a>
-                <a href="#trust" class="block text-agro-dark hover:text-agro-green transition py-2">Защо нас</a>
-                <a href="#ask-agronomist" class="block text-agro-dark hover:text-agro-green transition py-2">Питай агронома</a>
-                <a href="#blog" class="block text-agro-dark hover:text-agro-green transition py-2">Блог</a>
-                <a href="#about" class="block text-agro-dark hover:text-agro-green transition py-2">За нас</a>
-                <a href="#faq" class="block text-agro-dark hover:text-agro-green transition py-2">Въпроси</a>
-                <a href="#contact" class="block text-agro-dark hover:text-agro-green transition py-2">Контакти</a>
+                <a href="#home" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Начало</a>
+                <a href="#catalog" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Каталог</a>
+                <a href="#trust" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Защо нас</a>
+                <a href="#ask-agronomist" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Питай агронома</a>
+                <a href="#blog" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Блог</a>
+                <a href="#about" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">За нас</a>
+                <a href="#faq" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Въпроси</a>
+                <a href="#contact" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Контакти</a>
+                <button id="theme-toggle-mobile" data-theme-toggle aria-label="Превключи тема" class="w-full flex items-center justify-center space-x-2 border border-gray-200 px-6 py-3 rounded-full text-agro-dark transition hover:bg-agro-light dark:border-slate-700 dark:text-gray-100 dark:hover:bg-slate-800">
+                    <i class="fas fa-sun hidden" data-theme-icon="sun"></i>
+                    <i class="fas fa-moon" data-theme-icon="moon"></i>
+                    <span>Тема</span>
+                </button>
                 <a href="tel:0885227915" class="block bg-agro-green text-white px-6 py-3 rounded-full text-center">
                     <i class="fas fa-phone"></i> 0885 227 915
                 </a>
@@ -93,67 +113,67 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-agro-light/80 via-white to-agro-light">
+    <section id="home" class="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-agro-light/80 via-white to-agro-light dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
         <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute -top-32 -right-32 w-96 h-96 bg-agro-green/15 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white"></div>
+            <div class="absolute -top-32 -right-32 w-96 h-96 bg-agro-green/15 rounded-full blur-3xl dark:bg-agro-green/10"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white dark:from-transparent"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid gap-16 items-center lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
                 <div class="space-y-6 max-w-xl">
-                    <span class="hero-badge inline-flex items-center px-4 py-2 rounded-full bg-white/70 backdrop-blur text-sm font-semibold text-agro-green shadow-md">
+                    <span class="hero-badge inline-flex items-center px-4 py-2 rounded-full bg-white/70 backdrop-blur text-sm font-semibold text-agro-green shadow-md dark:bg-slate-800/80 dark:text-agro-green">
                         <i class="fas fa-award mr-2"></i>Над 15 години опит в агроконсултациите
                     </span>
-                    <h1 class="text-4xl md:text-6xl font-bold text-agro-dark leading-tight">
+                    <h1 class="text-4xl md:text-6xl font-bold text-agro-dark leading-tight dark:text-white">
                         Агрономически решения с внимание към всеки детайл
                     </h1>
-                    <p class="text-xl text-gray-700">
+                    <p class="text-xl text-gray-700 dark:text-gray-300">
                         Партньор сме на фермери и земеделски кооперации в Дългопол и региона. Комбинираме професионални продукти с експертни съвети, за да подсигурим стабилни добиви през всеки сезон.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#catalog" class="inline-flex items-center justify-center gap-3 rounded-full bg-agro-green px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-agro-green/30 transition hover:-translate-y-1 hover:bg-agro-green-dark">
                             <i class="fas fa-box-open"></i>Виж каталога
                         </a>
-                        <a href="#ask-agronomist" class="inline-flex items-center justify-center gap-3 rounded-full border-2 border-agro-green px-8 py-4 text-lg font-semibold text-agro-green transition hover:-translate-y-1 hover:bg-agro-green hover:text-white">
+                        <a href="#ask-agronomist" class="inline-flex items-center justify-center gap-3 rounded-full border-2 border-agro-green px-8 py-4 text-lg font-semibold text-agro-green transition hover:-translate-y-1 hover:bg-agro-green hover:text-white dark:text-agro-green dark:hover:text-white">
                             <i class="fas fa-user-md"></i>Запази консултация
                         </a>
                     </div>
-                    <div class="hero-glass mt-8 flex flex-col items-start gap-4 rounded-3xl bg-white/75 p-6 shadow-2xl backdrop-blur">
+                    <div class="hero-glass mt-8 flex flex-col items-start gap-4 rounded-3xl bg-white/75 p-6 shadow-2xl backdrop-blur transition-colors duration-300 dark:bg-slate-800/80 dark:text-gray-200">
                         <div class="flex items-center gap-3 text-sm uppercase tracking-widest text-agro-green">
                             <span class="w-10 h-px bg-agro-green"></span>Агроном на място
                         </div>
                         <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                             <div>
-                                <p class="text-sm text-gray-500">Главен агроном</p>
-                                <p class="text-lg font-semibold text-agro-dark">Радка Жекова</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Главен агроном</p>
+                                <p class="text-lg font-semibold text-agro-dark dark:text-white">Радка Жекова</p>
                             </div>
                             <a href="tel:0885227915" class="inline-flex items-center gap-3 rounded-full bg-agro-dark/90 px-5 py-3 text-sm font-semibold text-white transition hover:bg-agro-dark">
                                 <span class="flex h-9 w-9 items-center justify-center rounded-full bg-agro-green text-white"><i class="fas fa-phone"></i></span>
                                 0885 227 915
                             </a>
                         </div>
-                        <div class="flex flex-wrap gap-3 text-sm text-gray-500">
-                            <span class="inline-flex items-center gap-2 rounded-full bg-agro-light/60 px-4 py-2"><i class="fas fa-seedling text-agro-green"></i>Полеви посещения</span>
-                            <span class="inline-flex items-center gap-2 rounded-full bg-agro-light/60 px-4 py-2"><i class="fas fa-microscope text-agro-green"></i>Диагностика на проблеми</span>
+                        <div class="flex flex-wrap gap-3 text-sm text-gray-500 dark:text-gray-300">
+                            <span class="inline-flex items-center gap-2 rounded-full bg-agro-light/60 px-4 py-2 dark:bg-slate-700/60"><i class="fas fa-seedling text-agro-green"></i>Полеви посещения</span>
+                            <span class="inline-flex items-center gap-2 rounded-full bg-agro-light/60 px-4 py-2 dark:bg-slate-700/60"><i class="fas fa-microscope text-agro-green"></i>Диагностика на проблеми</span>
                         </div>
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="hero-visual relative overflow-hidden rounded-[3rem] border border-white/50 shadow-2xl">
+                    <div class="hero-visual relative overflow-hidden rounded-[3rem] border border-white/50 shadow-2xl dark:border-slate-700">
                         <img src="images/products/seeds.jpg" alt="Земеделски полета в изгрев" class="h-full w-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-agro-dark/40 via-transparent to-transparent"></div>
                     </div>
-                    <div class="hero-floating-card hidden md:flex items-center gap-4 rounded-2xl bg-white/90 px-6 py-5 shadow-xl backdrop-blur-lg">
+                    <div class="hero-floating-card hidden md:flex items-center gap-4 rounded-2xl bg-white/90 px-6 py-5 shadow-xl backdrop-blur-lg dark:bg-slate-800/90 dark:text-gray-200">
                         <span class="flex h-12 w-12 items-center justify-center rounded-full bg-agro-green/15 text-agro-green text-xl"><i class="fas fa-chart-line"></i></span>
                         <div>
-                            <p class="text-xs uppercase tracking-wide text-gray-500">Резултати</p>
-                            <p class="text-lg font-semibold text-agro-dark">+18% среден ръст в добива</p>
+                            <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Резултати</p>
+                            <p class="text-lg font-semibold text-agro-dark dark:text-white">+18% среден ръст в добива</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="mt-20 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-                <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
                     <span class="h-px w-12 bg-agro-green"></span>
                     Над 750 доверени клиента
                 </div>
@@ -284,45 +304,45 @@
     </section>
 
     <!-- Categories Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-white transition-colors duration-300 dark:bg-slate-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark mb-12 dark:text-white">
                 Нашите категории продукти
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 <!-- Category 1 -->
-                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer" data-category="препарати">
+                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer dark:bg-slate-800 dark:text-gray-100" data-category="препарати">
                     <i class="fas fa-spray-can text-agro-green text-5xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-agro-dark mb-2">Препарати</h3>
-                    <p class="text-sm text-gray-600">Защита на растения</p>
+                    <h3 class="text-lg font-semibold text-agro-dark mb-2 dark:text-white">Препарати</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Защита на растения</p>
                 </div>
                 
                 <!-- Category 2 -->
-                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer" data-category="торове">
+                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer dark:bg-slate-800 dark:text-gray-100" data-category="торове">
                     <i class="fas fa-flask text-agro-green text-5xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-agro-dark mb-2">Торове</h3>
-                    <p class="text-sm text-gray-600">Подхранване</p>
+                    <h3 class="text-lg font-semibold text-agro-dark mb-2 dark:text-white">Торове</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Подхранване</p>
                 </div>
                 
                 <!-- Category 3 -->
-                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer" data-category="семена">
+                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer dark:bg-slate-800 dark:text-gray-100" data-category="семена">
                     <i class="fas fa-seedling text-agro-green text-5xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-agro-dark mb-2">Семена</h3>
-                    <p class="text-sm text-gray-600">Качествен посевен материал</p>
+                    <h3 class="text-lg font-semibold text-agro-dark mb-2 dark:text-white">Семена</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Качествен посевен материал</p>
                 </div>
                 
                 <!-- Category 4 -->
-                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer" data-category="фуражи">
+                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer dark:bg-slate-800 dark:text-gray-100" data-category="фуражи">
                     <i class="fas fa-cow text-agro-green text-5xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-agro-dark mb-2">Фуражи</h3>
-                    <p class="text-sm text-gray-600">Храни за животни</p>
+                    <h3 class="text-lg font-semibold text-agro-dark mb-2 dark:text-white">Фуражи</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Храни за животни</p>
                 </div>
                 
                 <!-- Category 5 -->
-                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer" data-category="инвентар">
+                <div class="category-card bg-agro-light rounded-xl p-6 text-center hover:shadow-xl transition cursor-pointer dark:bg-slate-800 dark:text-gray-100" data-category="инвентар">
                     <i class="fas fa-tools text-agro-green text-5xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-agro-dark mb-2">Инвентар</h3>
-                    <p class="text-sm text-gray-600">Оборудване</p>
+                    <h3 class="text-lg font-semibold text-agro-dark mb-2 dark:text-white">Инвентар</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Оборудване</p>
                 </div>
             </div>
         </div>
@@ -685,7 +705,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gradient-to-br from-agro-light to-white">
+    <section id="contact" class="py-16 bg-gradient-to-br from-agro-light to-white transition-colors duration-300 dark:from-slate-900 dark:to-slate-800">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark mb-4">
                 Свържете се с нас
@@ -708,7 +728,7 @@
                                 <div>
                                     <h4 class="font-semibold text-agro-dark mb-1">Адрес</h4>
                                     <p class="text-gray-600">гр. Дългопол, България</p>
-                                    <p class="text-sm text-gray-500">(Точният адрес ще бъде добавен)</p>
+                                    <p class="text-sm text-gray-500">Агроаптека "Агреа"</p>
                                 </div>
                             </div>
                             
@@ -749,9 +769,12 @@
                         </div>
                     </div>
                     
-                    <!-- Map Placeholder -->
+                    <div class="relative rounded-xl overflow-hidden shadow-lg storefront-frame">
+                        <img src="images/storefront.jpg" alt="Фасада на Агроаптека Агреа" class="storefront-photo">
+                    </div>
+                    
                     <div class="relative h-64 overflow-hidden rounded-xl shadow-lg">
-                        <iframe title="Локация на Агроаптека Агреа" class="absolute inset-0 h-full w-full" src="https://maps.google.com/maps?q=%D0%94%D1%8A%D0%BB%D0%B3%D0%BE%D0%BF%D0%BE%D0%BB%2C%20%D0%91%D1%8A%D0%BB%D0%B3%D0%B0%D1%80%D0%B8%D1%8F&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe title="Локация на Агроаптека Агреа" class="absolute inset-0 h-full w-full" src="https://maps.google.com/maps?q=43.0487865,27.3420271&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <div class="absolute bottom-4 right-4 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-agro-dark shadow">
                             <i class="fas fa-location-arrow text-agro-green mr-2"></i>
                             Навигация
