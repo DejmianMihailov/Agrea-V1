@@ -11,6 +11,9 @@ const productsData = [
         description: "Инсектицид за борба с листни въшки, трипс и бяла мушица",
         features: ["Бързо действие", "Системно действие", "Дълъг защитен период"],
         activeSubstance: "Тиаклоприд 480 g/l",
+        brand: "Bayer Crop Science",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/pesticide.jpg"
     },
     {
@@ -23,6 +26,9 @@ const productsData = [
         description: "Фунгицид за борба с мана по домати, картофи и лозя",
         features: ["Контактно и системно действие", "Превантивна защита", "Високо ефективен"],
         activeSubstance: "Манкозеб + Металаксил-М",
+        brand: "Syngenta",
+        availability: "limited",
+        isNew: true,
         image: "images/products/pesticide.jpg"
     },
     {
@@ -35,6 +41,9 @@ const productsData = [
         description: "Инсектицид с широк спектър на действие",
         features: ["Микрокапсулна формулация", "Безопасен за полезни насекоми", "Устойчив на дъжд"],
         activeSubstance: "Ламбда-цихалотрин 50 g/l",
+        brand: "Corteva Agriscience",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/pesticide.jpg"
     },
     {
@@ -47,6 +56,9 @@ const productsData = [
         description: "Хербицид за борба с широколистни и треви в пшеница и ечемик",
         features: ["Селективен", "Бързо действие", "Отлична толерантност"],
         activeSubstance: "Пироксулам + Клоквинтосет-мексил + Флорасулам",
+        brand: "Adama",
+        availability: "preorder",
+        isNew: false,
         image: "images/products/pesticide.jpg"
     },
     {
@@ -59,6 +71,9 @@ const productsData = [
         description: "Системен фунгицид срещу парша и мана",
         features: ["Системно действие", "Лечебно и защитно", "Универсален"],
         activeSubstance: "Тиофанат метил 700 g/kg",
+        brand: "Sumitomo Chemical",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/pesticide.jpg"
     },
 
@@ -73,6 +88,9 @@ const productsData = [
         description: "Азотен тор за подхранване във всички фази на развитие",
         features: ["Бързо усвояване", "Подходящ за всички култури", "Високо съдържание на азот"],
         activeSubstance: "NH4NO3 - 34% N",
+        brand: "Agropolychim",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/fertilizer.jpg"
     },
     {
@@ -85,6 +103,9 @@ const productsData = [
         description: "Комплексен минерален тор за основно подхранване",
         features: ["Балансирана формула", "За всички култури", "Универсално приложение"],
         activeSubstance: "15% N, 15% P2O5, 15% K2O",
+        brand: "Timac Agro",
+        availability: "limited",
+        isNew: false,
         image: "images/products/fertilizer.jpg"
     },
     {
@@ -97,6 +118,9 @@ const productsData = [
         description: "Тор за листно подхранване с фосфор и калий",
         features: ["Водоразтворим", "За листно подхранване", "Подобрява качеството"],
         activeSubstance: "52% P2O5, 34% K2O",
+        brand: "Yara",
+        availability: "preorder",
+        isNew: false,
         image: "images/products/fertilizer.jpg"
     },
     {
@@ -107,8 +131,11 @@ const productsData = [
         price: 44.00,
         unit: "25 кг",
         description: "Високоефективен азотен тор",
-        features: ["Най-високо съдържание на азот", "Икономичен", "Бързо действие"],
+        features: ["Най-високо съдържание на азот", "Икономикачен", "Бързо действие"],
         activeSubstance: "CO(NH2)2 - 46% N",
+        brand: "EuroChem",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/fertilizer.jpg"
     },
     {
@@ -121,6 +148,9 @@ const productsData = [
         description: "Течен тор за листно подхранване с микроелементи",
         features: ["Пълен комплекс микроелементи", "Бързо усвояване", "Стимулира растежа"],
         activeSubstance: "NPK + микроелементи",
+        brand: "Valagro",
+        availability: "limited",
+        isNew: true,
         image: "images/products/fertilizer.jpg"
     },
 
@@ -135,6 +165,9 @@ const productsData = [
         description: "Зимна хлебна пшеница с висок потенциал",
         features: ["Висок добив", "Добро качество", "Устойчива на полягане"],
         activeSubstance: "Сертифицирани семена",
+        brand: "Садово",
+        availability: "preorder",
+        isNew: false,
         image: "images/products/seeds.jpg"
     },
     {
@@ -147,6 +180,9 @@ const productsData = [
         description: "Раннозрял хибрид със стабилен добив",
         features: ["ФАО 400", "Устойчивост на суша", "Високо качество на зърното"],
         activeSubstance: "F1 хибрид",
+        brand: "LG Seeds",
+        availability: "in_stock",
+        isNew: true,
         image: "images/products/seeds.jpg"
     },
     {
@@ -158,7 +194,10 @@ const productsData = [
         unit: "един. 150 000 семена",
         description: "Високомаслен хибрид с Clearfield технология",
         features: ["Clearfield технология", "Високо маслено съдържание", "Толерантност към хербициди"],
-        activeSubstature: "F1 хибрид",
+        activeSubstance: "F1 хибрид",
+        brand: "Syngenta",
+        availability: "limited",
+        isNew: false,
         image: "images/products/seeds.jpg"
     },
     {
@@ -171,6 +210,9 @@ const productsData = [
         description: "Хибриден сорт за оранжерийно и полско отглеждане",
         features: ["Ранен", "Високопродуктивен", "Устойчив на болести"],
         activeSubstance: "F1 хибрид",
+        brand: "Rijk Zwaan",
+        availability: "preorder",
+        isNew: false,
         image: "images/products/seeds.jpg"
     },
 
@@ -185,6 +227,9 @@ const productsData = [
         description: "Високоенергиен фураж за животни",
         features: ["Висока енергийна стойност", "Добра смилаемост", "За всички видове животни"],
         activeSubstance: "Мляна царевица",
+        brand: "Bonmix",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/feed.jpg"
     },
     {
@@ -197,6 +242,9 @@ const productsData = [
         description: "Балансиран фураж за угояване на свине",
         features: ["Пълноценно хранене", "Високопротеинов", "Отлично усвояване"],
         activeSubstance: "Комплексна смес",
+        brand: "Purina",
+        availability: "limited",
+        isNew: false,
         image: "images/products/feed.jpg"
     },
     {
@@ -209,6 +257,9 @@ const productsData = [
         description: "Качествен сенаж от люцерна",
         features: ["Висок протеин", "Богат на минерали", "За преживни животни"],
         activeSubstance: "Сушена люцерна",
+        brand: "Agroland",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/feed.jpg"
     },
 
@@ -223,6 +274,9 @@ const productsData = [
         description: "Гръбна пръскачка с налягане за градини",
         features: ["Висококачествена", "Регулируем разпръсквач", "Здрав материал"],
         activeSubstance: "Пластмасов резервоар",
+        brand: "Gardena",
+        availability: "on_request",
+        isNew: true,
         image: "images/products/sprayer.jpg"
     },
     {
@@ -235,6 +289,9 @@ const productsData = [
         description: "Защитни ръкавици за градинска работа",
         features: ["Издръжливи", "Удобни", "Защита от наранявания"],
         activeSubstance: "Текстил с каучукова покривка",
+        brand: "Wolf Garten",
+        availability: "in_stock",
+        isNew: false,
         image: "images/products/sprayer.jpg"
     },
     {
@@ -247,6 +304,9 @@ const productsData = [
         description: "Професионален секатор за рязане и подрязване",
         features: ["Остър и прецизен", "Ергономична дръжка", "Дълготраен"],
         activeSubstance: "Стомана с тефлоново покритие",
+        brand: "Felco",
+        availability: "limited",
+        isNew: false,
         image: "images/products/sprayer.jpg"
     }
 ];
@@ -263,21 +323,18 @@ function getCategoryLabel(category) {
     return categoryLabels[category] || category;
 }
 
-function getAvailabilityMeta(category) {
-    switch (category) {
-        case "препарати":
-            return { label: "В наличност", className: "badge badge-success" };
-        case "торове":
-            return { label: "Доставка до 48ч", className: "badge badge-info" };
-        case "семена":
-            return { label: "Предсезонна заявка", className: "badge badge-warning" };
-        case "фуражи":
-            return { label: "В склад", className: "badge badge-success" };
-        case "инвентар":
-            return { label: "По заявка", className: "badge badge-warning" };
-        default:
-            return { label: "Наличност", className: "badge badge-info" };
+const availabilityMap = {
+    in_stock: { label: "В наличност", className: "badge badge-success" },
+    limited: { label: "Ограничено", className: "badge badge-warning" },
+    preorder: { label: "Предварителна заявка", className: "badge badge-info" },
+    on_request: { label: "По заявка", className: "badge badge-info" }
+};
+
+function getAvailabilityMeta(product) {
+    if (product.availability && availabilityMap[product.availability]) {
+        return availabilityMap[product.availability];
     }
+    return availabilityMap.in_stock;
 }
 
 function formatCultures(cultures) {
@@ -304,7 +361,7 @@ function renderProducts(products) {
     noResults.classList.add('hidden');
     
     grid.innerHTML = products.map(product => {
-        const availability = getAvailabilityMeta(product.category);
+        const availability = getAvailabilityMeta(product);
         const cultures = formatCultures(product.culture);
         const featureTags = product.features.map(feature => `
             <span class="product-tag">${feature}</span>
@@ -323,6 +380,10 @@ function renderProducts(products) {
                 </div>
                 <div class="flex flex-1 flex-col gap-4 p-6">
                     <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="product-brand">${product.brand || 'Premium Selection'}</span>
+                            ${product.isNew ? '<span class="badge badge-info">Нов продукт</span>' : ''}
+                        </div>
                         <h3 class="text-xl font-bold text-agro-dark">${product.name}</h3>
                         <p class="product-desc mt-2 text-sm text-gray-600">${product.description}</p>
                     </div>
@@ -339,10 +400,10 @@ function renderProducts(products) {
                             <p class="text-sm text-gray-500">/ ${product.unit}</p>
                         </div>
                         <div class="flex w-full flex-col gap-2 sm:w-48">
-                            <button type="button" onclick="openInquiryModal(${JSON.stringify(product.name)})" class="product-btn-primary">
+                            <button type="button" data-inquiry-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-primary">
                                 <i class="fas fa-envelope mr-2"></i>Запитване
                             </button>
-                            <button type="button" onclick="shareProduct(${JSON.stringify(product.name)})" class="product-btn-secondary">
+                            <button type="button" data-share-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-secondary">
                                 <i class="fas fa-share-alt mr-2"></i>Сподели
                             </button>
                         </div>
@@ -358,7 +419,8 @@ function filterProducts() {
     const searchTerm = document.getElementById('product-search')?.value.toLowerCase() || '';
     const categoryFilter = document.getElementById('category-filter')?.value || '';
     const cultureFilter = document.getElementById('culture-filter')?.value || '';
-    
+    const availabilityFilter = document.querySelector('[data-filter="availability"].active')?.dataset.value || '';
+
     let filtered = productsData;
     
     // Filter by search term
@@ -380,27 +442,29 @@ function filterProducts() {
             product.culture.includes(cultureFilter) || product.culture.length === 0
         );
     }
+
+    if (availabilityFilter) {
+        filtered = filtered.filter(product => product.availability === availabilityFilter);
+    }
     
     renderProducts(filtered);
 }
 
 // Function to open inquiry modal
 function openInquiryModal(productName) {
-    // For now, we'll scroll to the contact form
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-        
-        // Pre-fill the message
-        setTimeout(() => {
-            const messageField = document.querySelector('#contact-form textarea[name="message"]');
-            if (messageField) {
-                messageField.value = `Здравейте, интересувам се от продукт: ${productName}\n\n`;
-                messageField.focus();
-            }
-        }, 500);
+    // Redirect to inquiry page with product name as parameter
+    if (!productName) {
+        console.error('Product name is required');
+        return;
     }
+    const encodedProductName = encodeURIComponent(productName);
+    const inquiryUrl = `inquiry.html?product=${encodedProductName}`;
+    console.log('Redirecting to:', inquiryUrl);
+    window.location.href = inquiryUrl;
 }
+
+// Make function globally available
+window.openInquiryModal = openInquiryModal;
 
 // Initialize products on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -411,6 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('product-search');
     const categorySelect = document.getElementById('category-filter');
     const cultureSelect = document.getElementById('culture-filter');
+    const availabilityChips = document.querySelectorAll('[data-filter="availability"]');
     
     if (searchInput) {
         searchInput.addEventListener('input', filterProducts);
@@ -423,7 +488,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cultureSelect) {
         cultureSelect.addEventListener('change', filterProducts);
     }
-    
+
+    if (availabilityChips.length) {
+        availabilityChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                availabilityChips.forEach(c => {
+                    c.classList.remove('active');
+                    c.setAttribute('aria-pressed', 'false');
+                });
+                chip.classList.add('active');
+                chip.setAttribute('aria-pressed', 'true');
+                filterProducts();
+            });
+        });
+    }
+
     // Add click handlers for category cards
     const categoryCards = document.querySelectorAll('.category-card');
     categoryCards.forEach(card => {
@@ -442,4 +521,58 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Event delegation for inquiry and share buttons
+    const productsGrid = document.getElementById('products-grid');
+    if (productsGrid) {
+        productsGrid.addEventListener('click', function(e) {
+            // Handle inquiry button clicks
+            const inquiryBtn = e.target.closest('[data-inquiry-btn]');
+            if (inquiryBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Try to get product name from data attribute, or find by ID
+                let productName = inquiryBtn.getAttribute('data-product-name');
+                if (!productName) {
+                    const productId = inquiryBtn.getAttribute('data-product-id');
+                    if (productId) {
+                        const product = productsData.find(p => p.id === parseInt(productId));
+                        if (product) {
+                            productName = product.name;
+                        }
+                    }
+                }
+                console.log('Inquiry button clicked for product:', productName);
+                if (productName) {
+                    openInquiryModal(productName);
+                } else {
+                    console.error('Product name not found');
+                }
+                return;
+            }
+            
+            // Handle share button clicks
+            const shareBtn = e.target.closest('[data-share-btn]');
+            if (shareBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                let productName = shareBtn.getAttribute('data-product-name');
+                if (!productName) {
+                    const productId = shareBtn.getAttribute('data-product-id');
+                    if (productId) {
+                        const product = productsData.find(p => p.id === parseInt(productId));
+                        if (product) {
+                            productName = product.name;
+                        }
+                    }
+                }
+                if (productName && typeof shareProduct === 'function') {
+                    shareProduct(productName);
+                }
+                return;
+            }
+        });
+    } else {
+        console.error('Products grid not found');
+    }
 });

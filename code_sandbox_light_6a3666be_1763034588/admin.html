@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Админ панел - Управление на запитвания">
+    <title>Админ панел | Агроаптека Агреа</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'agro-green': '#4CAF50',
+                        'agro-light': '#E8E4D9',
+                        'agro-dark': '#2C2C2C',
+                        'agro-green-dark': '#388E3C',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        (function() {
+            const storedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+</head>
+<body class="font-inter bg-gray-50 text-agro-dark transition-colors duration-300 dark:bg-slate-900 dark:text-gray-100">
+    
+    <!-- Login Screen -->
+    <div id="login-screen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-agro-light/30 via-white to-agro-light dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 px-4">
+        <div class="max-w-md w-full bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-agro-light dark:border-slate-700">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-agro-green/10 mb-4">
+                    <i class="fas fa-lock text-2xl text-agro-green"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-agro-dark dark:text-white mb-2">Админ вход</h1>
+                <p class="text-gray-600 dark:text-gray-400">Въведете парола за достъп</p>
+            </div>
+            
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="admin-password" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                        Парола
+                    </label>
+                    <input 
+                        type="password" 
+                        id="admin-password" 
+                        required 
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100"
+                        placeholder="Въведете парола"
+                        autocomplete="off"
+                    >
+                </div>
+                
+                <button 
+                    type="submit" 
+                    class="w-full bg-agro-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-agro-green-dark transition"
+                >
+                    <i class="fas fa-sign-in-alt mr-2"></i>Влез
+                </button>
+            </form>
+            
+            <div id="login-error" class="hidden mt-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-lg">
+                <i class="fas fa-exclamation-circle mr-2"></i>
+                Неправилна парола!
+            </div>
+            
+            <div class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>По подразбиране паролата е: <code class="bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">admin123</code></p>
+                <p class="mt-2 text-xs">Можете да я промените в js/admin.js</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="hidden min-h-screen">
+        <!-- Header -->
+        <header class="bg-white dark:bg-slate-800 shadow-md border-b border-agro-light dark:border-slate-700">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-3">
+                        <img src="images/logo.png" alt="Агреа Лого" class="h-10 w-10 object-contain">
+                        <div>
+                            <h1 class="text-xl font-bold text-agro-dark dark:text-white">Админ панел</h1>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">Управление на запитвания</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <button id="theme-toggle" data-theme-toggle aria-label="Превключи тема" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-agro-dark transition hover:bg-agro-light dark:border-slate-700 dark:text-gray-100 dark:hover:bg-slate-700">
+                            <i class="fas fa-sun text-lg hidden" data-theme-icon="sun"></i>
+                            <i class="fas fa-moon text-lg" data-theme-icon="moon"></i>
+                        </button>
+                        <a href="index.html" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">
+                            <i class="fas fa-home mr-2"></i>Начало
+                        </a>
+                        <button id="logout-btn" class="text-red-600 hover:text-red-700 transition">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Изход
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto px-4 py-8">
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 border border-agro-light dark:border-slate-700">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Нови запитвания</p>
+                            <p id="stat-new" class="text-2xl font-bold text-agro-green">0</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-agro-green/10 flex items-center justify-center">
+                            <i class="fas fa-envelope text-agro-green text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 border border-agro-light dark:border-slate-700">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Прочетени</p>
+                            <p id="stat-read" class="text-2xl font-bold text-blue-600">0</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
+                            <i class="fas fa-eye text-blue-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 border border-agro-light dark:border-slate-700">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Отговорени</p>
+                            <p id="stat-replied" class="text-2xl font-bold text-purple-600">0</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center">
+                            <i class="fas fa-reply text-purple-600 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 border border-agro-light dark:border-slate-700">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Общо</p>
+                            <p id="stat-total" class="text-2xl font-bold text-agro-dark dark:text-white">0</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                            <i class="fas fa-list text-gray-600 dark:text-gray-300 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md p-6 mb-6 border border-agro-light dark:border-slate-700">
+                <div class="flex flex-wrap gap-4 items-center">
+                    <label class="font-semibold text-gray-700 dark:text-gray-300">Филтри:</label>
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-full bg-agro-green text-white">
+                        Всички
+                    </button>
+                    <button data-filter="new" class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-agro-green hover:text-white transition">
+                        Нови
+                    </button>
+                    <button data-filter="read" class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white transition">
+                        Прочетени
+                    </button>
+                    <button data-filter="replied" class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-purple-500 hover:text-white transition">
+                        Отговорени
+                    </button>
+                    <button data-filter="closed" class="filter-btn px-4 py-2 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-600 hover:text-white transition">
+                        Затворени
+                    </button>
+                </div>
+            </div>
+
+            <!-- Inquiries List -->
+            <div id="inquiries-list" class="space-y-4">
+                <!-- Inquiries will be rendered here -->
+            </div>
+
+            <div id="no-inquiries" class="hidden text-center py-12">
+                <i class="fas fa-inbox text-6xl text-gray-300 dark:text-gray-600 mb-4"></i>
+                <p class="text-xl text-gray-600 dark:text-gray-400">Няма запитвания</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Reply Modal -->
+    <div id="reply-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-agro-light dark:border-slate-700">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white">Отговор на запитване</h2>
+                    <button id="close-reply-modal" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div id="reply-inquiry-details" class="mb-6 p-4 bg-gray-50 dark:bg-slate-700 rounded-lg">
+                    <!-- Inquiry details will be shown here -->
+                </div>
+                
+                <form id="reply-form" class="space-y-4">
+                    <div>
+                        <label for="reply-message" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                            Отговор <span class="text-red-500">*</span>
+                        </label>
+                        <textarea 
+                            id="reply-message" 
+                            required 
+                            rows="6" 
+                            class="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100 resize-none"
+                            placeholder="Напишете вашия отговор тук..."
+                        ></textarea>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <button 
+                            type="submit" 
+                            class="flex-1 bg-agro-green text-white px-6 py-3 rounded-full font-semibold hover:bg-agro-green-dark transition"
+                        >
+                            <i class="fas fa-paper-plane mr-2"></i>Изпрати отговор
+                        </button>
+                        <button 
+                            type="button" 
+                            id="cancel-reply" 
+                            class="px-6 py-3 rounded-full border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 transition"
+                        >
+                            Отказ
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
+

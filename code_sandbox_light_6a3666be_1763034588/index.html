@@ -369,7 +369,7 @@
     </section>
 
     <!-- Product Catalog -->
-    <section id="catalog" class="py-16 bg-gray-50">
+    <section id="catalog" class="py-16 bg-gray-50 transition-colors duration-300 dark:bg-slate-950">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark mb-4">
                 Продуктов каталог
@@ -379,12 +379,12 @@
             </p>
             
             <!-- Search and Filters -->
-            <div class="mb-8 bg-white p-6 rounded-xl shadow-md">
+            <div class="mb-8 bg-white p-6 rounded-xl shadow-md transition-colors duration-300 dark:bg-slate-900/80 dark:border dark:border-slate-700">
                 <div class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0">
                     <div class="flex-1">
-                        <input type="text" id="product-search" placeholder="Търси продукт..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green">
+                        <input type="text" id="product-search" placeholder="Търси продукт..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green dark:border-slate-700 dark:bg-slate-800 dark:text-gray-100">
                     </div>
-                    <select id="category-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green">
+                    <select id="category-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green dark:border-slate-700 dark:bg-slate-800 dark:text-gray-100">
                         <option value="">Всички категории</option>
                         <option value="препарати">Препарати</option>
                         <option value="торове">Торове</option>
@@ -392,13 +392,20 @@
                         <option value="фуражи">Фуражи</option>
                         <option value="инвентар">Инвентар</option>
                     </select>
-                    <select id="culture-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green">
+                    <select id="culture-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green dark:border-slate-700 dark:bg-slate-800 dark:text-gray-100">
                         <option value="">Всички култури</option>
                         <option value="зърнени">Зърнени култури</option>
                         <option value="зеленчуци">Зеленчуци</option>
                         <option value="овощни">Овощни</option>
                         <option value="лозя">Лозя и винени култури</option>
                     </select>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-3">
+                    <button class="chip active" data-filter="availability" data-value="" aria-pressed="true">Всички наличности</button>
+                    <button class="chip" data-filter="availability" data-value="in_stock" aria-pressed="false">В наличност</button>
+                    <button class="chip" data-filter="availability" data-value="limited" aria-pressed="false">Ограничени количества</button>
+                    <button class="chip" data-filter="availability" data-value="preorder" aria-pressed="false">Предварителна заявка</button>
+                    <button class="chip" data-filter="availability" data-value="on_request" aria-pressed="false">По заявка</button>
                 </div>
             </div>
             
