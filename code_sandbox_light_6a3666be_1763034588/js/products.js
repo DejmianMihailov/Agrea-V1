@@ -403,9 +403,14 @@ function renderProducts(products) {
                             <button type="button" data-inquiry-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-primary">
                                 <i class="fas fa-envelope mr-2"></i>Запитване
                             </button>
-                            <button type="button" data-share-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-secondary">
-                                <i class="fas fa-share-alt mr-2"></i>Сподели
-                            </button>
+                            <div class="flex gap-2">
+                                <button type="button" data-compare-btn data-product-id="${product.id}" class="product-btn-secondary flex-1 text-xs sm:text-sm whitespace-nowrap">
+                                    <i class="fas fa-balance-scale mr-1 sm:mr-2"></i><span class="hidden sm:inline">Сравни</span><span class="sm:hidden">Сравн.</span>
+                                </button>
+                                <button type="button" data-share-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-secondary flex-1 text-xs sm:text-sm whitespace-nowrap">
+                                    <i class="fas fa-share-alt mr-1 sm:mr-2"></i><span class="hidden sm:inline">Сподели</span><span class="sm:hidden">Спод.</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

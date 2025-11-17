@@ -5,7 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Агроаптека Агреа - Вашият надежден партньор в земеделието в гр. Дългопол. Професионални препарати, торове, семена и агрономически консултации.">
     <meta name="keywords" content="агроаптека, агро препарати, торове, семена, фуражи, Дългопол, Радка Жекова, агроном">
+    <meta name="author" content="Агроаптека Агреа">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agrea.bg/">
+    <meta property="og:title" content="Агроаптека Агреа | Професионални агро решения в Дългопол">
+    <meta property="og:description" content="Вашият надежден партньор в земеделието. Професионални препарати, торове, семена и агрономически консултации.">
+    <meta property="og:image" content="https://agrea.bg/images/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://agrea.bg/">
+    <meta property="twitter:title" content="Агроаптека Агреа | Професионални агро решения в Дългопол">
+    <meta property="twitter:description" content="Вашият надежден партньор в земеделието. Професионални препарати, торове, семена и агрономически консултации.">
+    <meta property="twitter:image" content="https://agrea.bg/images/logo.png">
+    
     <title>Агроаптека Агреа | Професионални агро решения в Дългопол</title>
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Агроаптека Агреа",
+        "image": "https://agrea.bg/images/logo.png",
+        "@id": "https://agrea.bg",
+        "url": "https://agrea.bg",
+        "telephone": "+359885227915",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "гр. Дългопол",
+            "addressLocality": "Дългопол",
+            "addressCountry": "BG"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.0487865,
+            "longitude": 27.3420271
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/agrea",
+            "https://www.instagram.com/agrea"
+        ]
+    }
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,6 +76,17 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Analytics (replace with your tracking ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
     
     <script>
         tailwind.config = {
@@ -65,10 +134,10 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Начало</a>
                     <a href="#catalog" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Каталог</a>
-                    <a href="#trust" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Защо нас</a>
-                    <a href="#ask-agronomist" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Питай агронома</a>
+                    <a href="#dosage-calculator" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Калкулатор</a>
+                    <a href="#seasonal-calendar" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Календар</a>
+                    <a href="#promotions" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Оферти</a>
                     <a href="#blog" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Блог</a>
-                    <a href="#about" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">За нас</a>
                     <a href="#faq" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Въпроси</a>
                     <a href="#contact" class="text-agro-dark hover:text-agro-green transition dark:text-gray-200">Контакти</a>
                 </div>
@@ -94,10 +163,10 @@
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-3">
                 <a href="#home" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Начало</a>
                 <a href="#catalog" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Каталог</a>
-                <a href="#trust" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Защо нас</a>
-                <a href="#ask-agronomist" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Питай агронома</a>
+                <a href="#dosage-calculator" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Калкулатор</a>
+                <a href="#seasonal-calendar" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Календар</a>
+                <a href="#promotions" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Оферти</a>
                 <a href="#blog" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Блог</a>
-                <a href="#about" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">За нас</a>
                 <a href="#faq" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Въпроси</a>
                 <a href="#contact" class="block text-agro-dark hover:text-agro-green transition py-2 dark:text-gray-200">Контакти</a>
                 <button id="theme-toggle-mobile" data-theme-toggle aria-label="Превключи тема" class="w-full flex items-center justify-center space-x-2 border border-gray-200 px-6 py-3 rounded-full text-agro-dark transition hover:bg-agro-light dark:border-slate-700 dark:text-gray-100 dark:hover:bg-slate-800">
@@ -656,8 +725,363 @@
         </div>
     </section>
 
+    <!-- Promotions Section -->
+    <section id="promotions" class="py-16 bg-gradient-to-br from-agro-green/10 via-white to-agro-light dark:from-slate-800 dark:via-slate-900 dark:to-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark dark:text-white mb-4">
+                Актуални оферти
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+                Възползвайте се от нашите специални промоции и оферти
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Promotion Card 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden border-2 border-agro-green hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="bg-gradient-to-r from-agro-green to-agro-green-dark p-6 text-white">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold">НОВА ОФЕРТА</span>
+                            <i class="fas fa-tag text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Сезонна промоция</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            При покупка на препарати за растителна защита над 200 лв., получавате 10% отстъпка!
+                        </p>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-600 dark:text-gray-400">
+                            <li><i class="fas fa-check text-agro-green mr-2"></i>Валидно до края на месеца</li>
+                            <li><i class="fas fa-check text-agro-green mr-2"></i>Приложимо за всички препарати</li>
+                        </ul>
+                        <a href="#catalog" class="block w-full bg-agro-green text-white text-center py-3 rounded-lg font-semibold hover:bg-agro-green-dark transition">
+                            Виж продуктите
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Promotion Card 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden border-2 border-blue-500 hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold">ПОПУЛЯРНО</span>
+                            <i class="fas fa-star text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Комплект за нови клиенти</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Специална оферта за нови клиенти - безплатна консултация с агроном!
+                        </p>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-600 dark:text-gray-400">
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i>Безплатна консултация</li>
+                            <li><i class="fas fa-check text-blue-500 mr-2"></i>Персонализиран план</li>
+                        </ul>
+                        <a href="#ask-agronomist" class="block w-full bg-blue-500 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+                            Запиши се
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Promotion Card 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden border-2 border-purple-500 hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6 text-white">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold">ОГРАНИЧЕНО</span>
+                            <i class="fas fa-gift text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Безплатна доставка</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            При поръчки над 300 лв. в района на Дългопол - безплатна доставка!
+                        </p>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-600 dark:text-gray-400">
+                            <li><i class="fas fa-check text-purple-500 mr-2"></i>В рамките на града</li>
+                            <li><i class="fas fa-check text-purple-500 mr-2"></i>Без допълнителни такси</li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-purple-500 text-white text-center py-3 rounded-lg font-semibold hover:bg-purple-600 transition">
+                            Свържи се
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark dark:text-white mb-4">
+                Галерия
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+                Вижте нашата аптека и продукти
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <!-- Gallery Item 1 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/storefront.jpg" alt="Фасада на Агроаптека Агреа" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/products/pesticide.jpg" alt="Продукти" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/products/fertilizer.jpg" alt="Торове" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/products/seeds.jpg" alt="Семена" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/products/feed.jpg" alt="Фуражи" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/products/equipment.jpg" alt="Оборудване" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/storefront.jpg" alt="Интериор" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition cursor-pointer">
+                    <img src="images/products/pesticide.jpg" alt="Продукти" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dosage Calculator Section -->
+    <section id="dosage-calculator" class="py-16 bg-gradient-to-br from-blue-50 via-white to-agro-light dark:from-slate-900 dark:via-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark dark:text-white mb-4">
+                Калкулатор за дозировка
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+                Изчислете точното количество препарат, необходимо за вашата площ
+            </p>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 md:p-10 border border-agro-light dark:border-slate-700">
+                    <form id="dosage-calculator-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="area" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    Площ за обработка <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex">
+                                    <input 
+                                        type="number" 
+                                        id="area" 
+                                        step="0.01" 
+                                        min="0.01" 
+                                        required 
+                                        class="flex-1 px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100"
+                                        placeholder="0.00"
+                                    >
+                                    <select 
+                                        id="area-unit" 
+                                        class="px-4 py-3 border border-l-0 border-gray-300 dark:border-slate-600 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100"
+                                    >
+                                        <option value="dka">Декари (дка)</option>
+                                        <option value="ha">Хектари (ха)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="product-select" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    Продукт
+                                </label>
+                                <select 
+                                    id="product-select" 
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100"
+                                >
+                                    <option value="">Изберете продукт (опционално)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="dosage" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    Дозировка <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex">
+                                    <input 
+                                        type="number" 
+                                        id="dosage" 
+                                        step="0.01" 
+                                        min="0.01" 
+                                        required 
+                                        class="flex-1 px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100"
+                                        placeholder="0.00"
+                                    >
+                                    <select 
+                                        id="dosage-unit" 
+                                        class="px-4 py-3 border border-l-0 border-gray-300 dark:border-slate-600 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100"
+                                    >
+                                        <option value="ml-dka">мл/дка</option>
+                                        <option value="g-dka">г/дка</option>
+                                        <option value="l-ha">л/ха</option>
+                                        <option value="kg-ha">кг/ха</option>
+                                    </select>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Препоръчаната дозировка се намира на етикета на продукта</p>
+                            </div>
+                            
+                            <div>
+                                <label for="sprayer-volume" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                                    Обем на пръскачката (л)
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="sprayer-volume" 
+                                    step="1" 
+                                    min="1" 
+                                    class="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-agro-green bg-white dark:bg-slate-700 text-agro-dark dark:text-gray-100"
+                                    placeholder="200"
+                                >
+                            </div>
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            class="w-full bg-agro-green text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-agro-green-dark transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                        >
+                            <i class="fas fa-calculator mr-2"></i>Изчисли
+                        </button>
+                    </form>
+                    
+                    <!-- Results -->
+                    <div id="calculator-results" class="hidden mt-8 p-6 bg-agro-light dark:bg-slate-700 rounded-xl">
+                        <h3 class="text-xl font-bold text-agro-dark dark:text-white mb-4">
+                            <i class="fas fa-chart-line mr-2 text-agro-green"></i>Резултати
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg">
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Необходимо количество препарат</p>
+                                <p id="product-amount" class="text-2xl font-bold text-agro-green">-</p>
+                            </div>
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg">
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Приблизителна цена</p>
+                                <p id="estimated-price" class="text-2xl font-bold text-agro-green">-</p>
+                            </div>
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg">
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Необходимо количество вода</p>
+                                <p id="water-amount" class="text-2xl font-bold text-blue-600">-</p>
+                            </div>
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-lg">
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Брой зареждания на пръскачката</p>
+                                <p id="sprayer-loads" class="text-2xl font-bold text-purple-600">-</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+                            <p class="text-sm text-yellow-800 dark:text-yellow-200">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                <strong>Важно:</strong> Тези изчисления са приблизителни. Винаги следвайте инструкциите на етикета на продукта и се консултирайте с агроном преди употреба.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Calendar Section -->
+    <section id="seasonal-calendar" class="py-16 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark dark:text-white mb-4">
+                Сезонен календар за грижи
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+                Месечни препоръки за грижи за различни култури
+            </p>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Month Selector -->
+                <div class="mb-8 flex flex-wrap justify-center gap-3">
+                    <button class="month-btn active px-6 py-3 rounded-full bg-agro-green text-white font-semibold transition" data-month="0">
+                        Януари
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="1">
+                        Февруари
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="2">
+                        Март
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="3">
+                        Април
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="4">
+                        Май
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="5">
+                        Юни
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="6">
+                        Юли
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="7">
+                        Август
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="8">
+                        Септември
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="9">
+                        Октомври
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="10">
+                        Ноември
+                    </button>
+                    <button class="month-btn px-6 py-3 rounded-full bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-agro-green hover:text-white transition" data-month="11">
+                        Декември
+                    </button>
+                </div>
+                
+                <!-- Calendar Content -->
+                <div id="calendar-content" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-gray-50">
+    <section id="faq" class="py-20 bg-gray-50 dark:bg-slate-950">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto space-y-10">
                 <div class="text-center space-y-3">
@@ -905,11 +1329,60 @@
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Агроаптека "Агреа". Всички права запазени.</p>
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-center md:text-left">
+                        &copy; 2024 Агроаптека "Агреа". Всички права запазени.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="privacy-policy.html" class="text-gray-400 hover:text-agro-green transition text-sm">Политика за поверителност</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="terms.html" class="text-gray-400 hover:text-agro-green transition text-sm">Условия за ползване</a>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/agrea" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center transition" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="https://www.instagram.com/agrea" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition" aria-label="Instagram">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/agrea" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-700 hover:bg-blue-700 rounded-full flex items-center justify-center transition" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 shadow-2xl z-50 p-4 md:p-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex-1">
+                <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                    <i class="fas fa-cookie-bite text-agro-green mr-2"></i>
+                    Този сайт използва бисквитки за подобряване на потребителското изживяване. Продължавайки да използвате сайта, вие се съгласявате с нашата 
+                    <a href="privacy-policy.html" class="text-agro-green hover:underline">Политика за поверителност</a>.
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button id="accept-cookies" class="bg-agro-green text-white px-6 py-2 rounded-full font-semibold hover:bg-agro-green-dark transition whitespace-nowrap">
+                    Приемам
+                </button>
+                <button id="decline-cookies" class="bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 dark:hover:bg-slate-600 transition whitespace-nowrap">
+                    Отказвам
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/359885227915?text=Здравейте! Искам да попитам за продукти." target="_blank" rel="noopener noreferrer" class="fixed bottom-24 right-8 bg-green-500 text-white w-14 h-14 rounded-full shadow-lg hover:bg-green-600 transition z-50 flex items-center justify-center group" aria-label="Свържи се в WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="absolute right-full mr-3 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
+            Свържи се в WhatsApp
+        </span>
+    </a>
 
     <!-- Back to Top Button -->
     <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-agro-green text-white w-12 h-12 rounded-full shadow-lg hover:bg-agro-green-dark transition z-50">
@@ -919,6 +1392,9 @@
     <!-- Scripts -->
     <script src="js/products.js"></script>
     <script src="js/blog.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/comparison.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

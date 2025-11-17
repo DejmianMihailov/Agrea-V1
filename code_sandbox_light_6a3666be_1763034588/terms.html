@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Условия за ползване на уебсайта на Агроаптека Агреа">
+    <title>Условия за ползване | Агроаптека Агреа</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'agro-green': '#4CAF50',
+                        'agro-light': '#E8E4D9',
+                        'agro-dark': '#2C2C2C',
+                        'agro-green-dark': '#388E3C',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        (function() {
+            const storedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+</head>
+<body class="font-inter bg-white text-agro-dark transition-colors duration-300 dark:bg-slate-900 dark:text-gray-100">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50 transition-colors duration-300 dark:bg-slate-900 dark:shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="images/logo.png" alt="Агреа Лого" class="h-12 w-12 object-contain">
+                    <div class="transition-colors duration-300">
+                        <h1 class="text-2xl font-bold text-agro-dark dark:text-white">Агреа</h1>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Агроаптека Дългопол</p>
+                    </div>
+                </a>
+                <a href="index.html" class="text-agro-green hover:text-agro-green-dark transition">
+                    <i class="fas fa-arrow-left mr-2"></i>Назад
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-5xl font-bold text-agro-dark dark:text-white mb-8">Условия за ползване</h1>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">Последна актуализация: <time datetime="2024-01-01">1 януари 2024 г.</time></p>
+            
+            <div class="prose prose-lg max-w-none dark:prose-invert">
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">1. Приемане на условията</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Като достъпвате и използвате уебсайта на Агроаптека "Агреа", вие се съгласявате да се придържате към тези Условия за ползване. Ако не се съгласявате с някоя част от условията, моля не използвайте нашия уебсайт.
+                    </p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">2. Използване на сайта</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Вие се съгласявате да използвате уебсайта само за законни цели и по начин, който не нарушава правата на трети страни или не ограничава или възпрепятства използването му от други потребители.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Забранено е:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+                        <li>Използването на сайта за нелегални или неразрешени цели</li>
+                        <li>Опит за неоторизиран достъп до системата</li>
+                        <li>Разпространение на вируси или злонамерен софтуер</li>
+                        <li>Копиране или репродуциране на съдържанието без разрешение</li>
+                    </ul>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">3. Интелектуална собственост</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Всички материали на уебсайта, включително текстове, графики, лога, икони, изображения и софтуер, са собственост на Агроаптека "Агреа" или нейните лицензодатели и са защитени от законите за авторско право и интелектуална собственост.
+                    </p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">4. Информация за продукти</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Ние се стремим да предоставим точна информация за продуктите на уебсайта. Въпреки това, не гарантираме, че всичката информация е винаги актуална, пълна или безгрешна. Цените и наличността могат да се променят без предизвестие.
+                    </p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">5. Запитвания и поръчки</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Запитванията и поръчките, направени чрез уебсайта, са предмет на потвърждение от наша страна. Ние запазваме правото да откажем или отменим всяка поръчка по наша преценка.
+                    </p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">6. Връзки към трети страни</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Нашият уебсайт може да съдържа връзки към уебсайтове на трети страни. Ние не поемаме отговорност за съдържанието или политиките за поверителност на тези уебсайтове.
+                    </p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">7. Ограничение на отговорността</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Агроаптека "Агреа" не носи отговорност за каквито и да било преки, косвени, случайни или последващи щети, произтичащи от използването или невъзможността за използване на уебсайта.
+                    </p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">8. Промени в условията</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        Ние запазваме правото да променяме тези Условия за ползване по всяко време. Промените влизат в сила веднага след публикуването им на уебсайта. Препоръчваме ви редовно да преглеждате тази страница.
+                    </p>
+                </section>
+                
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-agro-dark dark:text-white mb-4">9. Контакти</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        За въпроси относно тези Условия за ползване, моля свържете се с нас:
+                    </p>
+                    <div class="bg-agro-light dark:bg-slate-800 rounded-lg p-6">
+                        <p class="text-gray-700 dark:text-gray-300"><strong>Агроаптека "Агреа"</strong></p>
+                        <p class="text-gray-700 dark:text-gray-300">гр. Дългопол, България</p>
+                        <p class="text-gray-700 dark:text-gray-300">Телефон: <a href="tel:0885227915" class="text-agro-green hover:underline">0885 227 915</a></p>
+                        <p class="text-gray-700 dark:text-gray-300">Имейл: <a href="mailto:info@agrea.bg" class="text-agro-green hover:underline">info@agrea.bg</a></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-agro-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Агроаптека "Агреа". Всички права запазени.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

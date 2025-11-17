@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupTestimonials();
     setupFaqAccordion();
     setupScrollToCatalog();
+    setupCookieBanner();
 });
 
 // Setup form handlers
@@ -591,4 +592,38 @@ function setupScrollToCatalog() {
     scrollButton.addEventListener('click', () => {
         catalogSection.scrollIntoView({ behavior: 'smooth' });
     });
+}
+
+// Cookie Banner
+function setupCookieBanner() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const declineBtn = document.getElementById('decline-cookies');
+    
+    if (!cookieBanner) return;
+    
+    // Check if user has already made a choice
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    if (!cookieConsent) {
+        // Show banner after a short delay
+        setTimeout(() => {
+            cookieBanner.classList.remove('hidden');
+        }, 1000);
+    }
+    
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.add('hidden');
+            // Here you can initialize analytics, etc.
+        });
+    }
+    
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieBanner.classList.add('hidden');
+        });
+    }
 }
