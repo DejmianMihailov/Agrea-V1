@@ -14,7 +14,7 @@ const productsData = [
         brand: "Bayer Crop Science",
         availability: "in_stock",
         isNew: true,
-        image: "images/products/movento.jpg"
+        image: "images/products/movento.png"
     },
     {
         id: 2,
@@ -29,7 +29,7 @@ const productsData = [
         brand: "BASF",
         availability: "in_stock",
         isNew: true,
-        image: "images/products/revystar.jpg"
+        image: "images/products/revystar.png"
     },
     {
         id: 3,
@@ -59,7 +59,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/axial.jpg"
+        image: "images/products/axial.png"
     },
     {
         id: 5,
@@ -74,7 +74,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: true,
-        image: "images/products/elatus.jpg"
+        image: "images/products/elatus.png"
     },
     {
         id: 21,
@@ -89,7 +89,7 @@ const productsData = [
         brand: "Nippon Soda",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/mospilan.jpg"
+        image: "images/products/mospilan.png"
     },
     {
         id: 22,
@@ -104,7 +104,7 @@ const productsData = [
         brand: "Bayer Crop Science",
         availability: "limited",
         isNew: false,
-        image: "images/products/prosaro.jpg"
+        image: "images/products/prosaro.png"
     },
 
     // Торове и подхранване
@@ -404,7 +404,7 @@ function renderProducts(products) {
                 <div class="absolute right-6 top-5">
                     <span class="category-chip">${getCategoryLabel(product.category)}</span>
             </div>
-                <div class="product-media relative h-48 overflow-hidden rounded-3xl bg-agro-light/60">
+                <div class="product-media relative h-48 overflow-hidden rounded-3xl bg-agro-light/60 ${product.category === 'препарати' ? 'product-media-small' : ''}">
                     <img src="${product.image}" alt="${product.name}" class="h-full w-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-agro-dark/10 via-transparent to-transparent"></div>
                 </div>
