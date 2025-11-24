@@ -275,6 +275,10 @@ nav a:hover::after {
     background: rgba(30, 41, 59, 0.6);
 }
 
+.dark .product-media {
+    background: rgba(30, 41, 59, 0.6);
+}
+
 .product-desc {
     display: -webkit-box;
     -webkit-line-clamp: 2;

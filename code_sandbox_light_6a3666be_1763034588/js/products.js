@@ -3,78 +3,108 @@ const productsData = [
     // Препарати за растителна защита
     {
         id: 1,
-        name: "Калипсо 480 SC",
+        name: "Мовенто 100 OD",
         category: "препарати",
-        culture: ["зърнени", "зеленчуци", "овощни"],
-        price: 45.90,
+        culture: ["зърнени", "зеленчуци", "овощни", "лозя"],
+        price: 48.50,
         unit: "100 мл",
-        description: "Инсектицид за борба с листни въшки, трипс и бяла мушица",
-        features: ["Бързо действие", "Системно действие", "Дълъг защитен период"],
-        activeSubstance: "Тиаклоприд 480 g/l",
+        description: "Системен инсектицид за борба с листни въшки, трипс, бяла мушица и акари",
+        features: ["Двупосочна системна активност", "Дълъг защитен период", "Безопасен за полезни насекоми"],
+        activeSubstance: "Спиротетрамат 100 g/l",
         brand: "Bayer Crop Science",
         availability: "in_stock",
-        isNew: false,
-        image: "images/products/pesticide.jpg"
+        isNew: true,
+        image: "images/products/movento.jpg"
     },
     {
         id: 2,
-        name: "Ридомил Голд МЦ 68 WP",
+        name: "Ревистар 250 EC",
         category: "препарати",
-        culture: ["зеленчуци", "лозя"],
-        price: 38.50,
-        unit: "1 кг",
-        description: "Фунгицид за борба с мана по домати, картофи и лозя",
-        features: ["Контактно и системно действие", "Превантивна защита", "Високо ефективен"],
-        activeSubstance: "Манкозеб + Металаксил-М",
-        brand: "Syngenta",
-        availability: "limited",
+        culture: ["зърнени", "лозя"],
+        price: 42.90,
+        unit: "1 л",
+        description: "Модерен фунгицид за борба с листни болести по зърнени култури и лозя",
+        features: ["Двойна активност", "Превантивна и лечебна защита", "Високо ефективен"],
+        activeSubstance: "Мефентрифлуконазол + Флуксапироксад",
+        brand: "BASF",
+        availability: "in_stock",
         isNew: true,
-        image: "images/products/pesticide.jpg"
+        image: "images/products/revystar.jpg"
     },
     {
         id: 3,
-        name: "Карате Зеон 5 CS",
+        name: "Сиванто Прайм 200 SL",
         category: "препарати",
         culture: ["зърнени", "зеленчуци", "овощни"],
-        price: 52.00,
+        price: 55.00,
         unit: "1 л",
-        description: "Инсектицид с широк спектър на действие",
-        features: ["Микрокапсулна формулация", "Безопасен за полезни насекоми", "Устойчив на дъжд"],
-        activeSubstance: "Ламбда-цихалотрин 50 g/l",
-        brand: "Corteva Agriscience",
+        description: "Системен инсектицид с широк спектър на действие",
+        features: ["Бързо действие", "Системна активност", "Безопасен за пчели"],
+        activeSubstance: "Флупирадифурон 200 g/l",
+        brand: "Bayer Crop Science",
         availability: "in_stock",
-        isNew: false,
-        image: "images/products/pesticide.jpg"
+        isNew: true,
+        image: "images/products/sivanto.jpg"
     },
     {
         id: 4,
-        name: "Галера 334 SL",
+        name: "Аксиал 50 EC",
         category: "препарати",
         culture: ["зърнени"],
-        price: 68.00,
+        price: 72.00,
         unit: "5 л",
-        description: "Хербицид за борба с широколистни и треви в пшеница и ечемик",
-        features: ["Селективен", "Бързо действие", "Отлична толерантност"],
-        activeSubstance: "Пироксулам + Клоквинтосет-мексил + Флорасулам",
-        brand: "Adama",
-        availability: "preorder",
+        description: "Хербицид за борба с едногодишни и многогодишни треви в пшеница и ечемик",
+        features: ["Селективен", "Ефективен срещу устойчиви треви", "Отлична толерантност"],
+        activeSubstance: "Пиноксаден 50 g/l",
+        brand: "Syngenta",
+        availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.jpg"
+        image: "images/products/axial.jpg"
     },
     {
         id: 5,
-        name: "Топсин М 70 WP",
+        name: "Елатус Ера 250 SC",
         category: "препарати",
-        culture: ["овощни", "лозя", "зеленчуци"],
-        price: 34.90,
-        unit: "1 кг",
-        description: "Системен фунгицид срещу парша и мана",
-        features: ["Системно действие", "Лечебно и защитно", "Универсален"],
-        activeSubstance: "Тиофанат метил 700 g/kg",
-        brand: "Sumitomo Chemical",
+        culture: ["зърнени", "лозя"],
+        price: 39.90,
+        unit: "1 л",
+        description: "Системен фунгицид срещу листни болести по зърнени култури и лозя",
+        features: ["Двойна активност", "Превантивна и лечебна защита", "Универсален"],
+        activeSubstance: "Азоксистробин + Протиоконазол",
+        brand: "Syngenta",
+        availability: "in_stock",
+        isNew: true,
+        image: "images/products/elatus.jpg"
+    },
+    {
+        id: 21,
+        name: "Моспилан 20 SP",
+        category: "препарати",
+        culture: ["зеленчуци", "овощни", "лозя"],
+        price: 36.50,
+        unit: "200 г",
+        description: "Системен инсектицид за борба с листни въшки, трипс и други вредители",
+        features: ["Бързо действие", "Системна активност", "Широк спектър"],
+        activeSubstance: "Ацетамиприд 200 g/kg",
+        brand: "Nippon Soda",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.jpg"
+        image: "images/products/mospilan.jpg"
+    },
+    {
+        id: 22,
+        name: "Просарo 250 EC",
+        category: "препарати",
+        culture: ["зърнени", "лозя"],
+        price: 44.00,
+        unit: "1 л",
+        description: "Системен фунгицид за борба с листни болести по зърнени култури",
+        features: ["Двойна активност", "Лечебна и защитна дейност", "Високо ефективен"],
+        activeSubstance: "Протиоконазол + Тебуконазол",
+        brand: "Bayer Crop Science",
+        availability: "limited",
+        isNew: false,
+        image: "images/products/prosaro.jpg"
     },
 
     // Торове и подхранване
@@ -373,7 +403,7 @@ function renderProducts(products) {
                 </div>
                 <div class="absolute right-6 top-5">
                     <span class="category-chip">${getCategoryLabel(product.category)}</span>
-                </div>
+            </div>
                 <div class="product-media relative h-48 overflow-hidden rounded-3xl bg-agro-light/60">
                     <img src="${product.image}" alt="${product.name}" class="h-full w-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-agro-dark/10 via-transparent to-transparent"></div>
@@ -398,11 +428,11 @@ function renderProducts(products) {
                             <p class="text-xs uppercase tracking-wide text-gray-500">Цена</p>
                             <p class="text-2xl font-bold text-agro-green">${product.price.toFixed(2)} лв</p>
                             <p class="text-sm text-gray-500">/ ${product.unit}</p>
-                        </div>
+                </div>
                         <div class="flex w-full flex-col gap-2 sm:w-48">
                             <button type="button" data-inquiry-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-primary">
-                                <i class="fas fa-envelope mr-2"></i>Запитване
-                            </button>
+                    <i class="fas fa-envelope mr-2"></i>Запитване
+                </button>
                             <div class="flex gap-2">
                                 <button type="button" data-compare-btn data-product-id="${product.id}" class="product-btn-secondary flex-1 text-xs sm:text-sm whitespace-nowrap">
                                     <i class="fas fa-balance-scale mr-1 sm:mr-2"></i><span class="hidden sm:inline">Сравни</span><span class="sm:hidden">Сравн.</span>
@@ -412,8 +442,8 @@ function renderProducts(products) {
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </div>
+            </div>
+        </div>
             </article>
         `;
     }).join('');
@@ -425,7 +455,7 @@ function filterProducts() {
     const categoryFilter = document.getElementById('category-filter')?.value || '';
     const cultureFilter = document.getElementById('culture-filter')?.value || '';
     const availabilityFilter = document.querySelector('[data-filter="availability"].active')?.dataset.value || '';
-
+    
     let filtered = productsData;
     
     // Filter by search term
@@ -466,7 +496,7 @@ function openInquiryModal(productName) {
     const inquiryUrl = `inquiry.html?product=${encodedProductName}`;
     console.log('Redirecting to:', inquiryUrl);
     window.location.href = inquiryUrl;
-}
+            }
 
 // Make function globally available
 window.openInquiryModal = openInquiryModal;
@@ -507,7 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
+    
     // Add click handlers for category cards
     const categoryCards = document.querySelectorAll('.category-card');
     categoryCards.forEach(card => {
