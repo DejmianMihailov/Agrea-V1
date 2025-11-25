@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Populate product select
     if (productSelect && typeof productsData !== 'undefined') {
-        const pesticideProducts = productsData.filter(p => p.category === 'препарати');
+        const pesticideProducts = productsData.filter(p => 
+            p.category === 'фунгициди' || 
+            p.category === 'инсектициди' || 
+            p.category === 'хербициди'
+        );
         pesticideProducts.forEach(product => {
             const option = document.createElement('option');
             option.value = product.id;

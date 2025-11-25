@@ -1894,34 +1894,7 @@ const categoryLabels = {
 };
 
 function getCategoryLabel(category) {
-    if (!category) return '';
-    
-    // Trim whitespace
-    const trimmedCategory = category.trim();
-    
-    // First check if it's in the labels map (exact match)
-    if (categoryLabels[trimmedCategory]) {
-        return categoryLabels[trimmedCategory];
-    }
-    
-    // Case-insensitive lookup
-    const normalizedCategory = trimmedCategory.toLowerCase();
-    for (const key in categoryLabels) {
-        if (key.toLowerCase() === normalizedCategory) {
-            return categoryLabels[key];
-        }
-    }
-    
-    // If not found, capitalize first letter of each word
-    if (trimmedCategory && trimmedCategory.length > 0) {
-        return trimmedCategory.split(' ').map(word => {
-            if (word.length === 0) return word;
-            // Capitalize first letter, keep rest lowercase
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        }).join(' ');
-    }
-    
-    return trimmedCategory;
+    return categoryLabels[category] || category;
 }
 
 const availabilityMap = {
@@ -1945,195 +1918,26 @@ function formatCultures(cultures) {
     return cultures.map(culture => culture.charAt(0).toUpperCase() + culture.slice(1)).join(", ");
 }
 
-// Function to get featured products (most important from each category)
-function getFeaturedProducts(productsPerCategory = 4) {
-    const categories = [...new Set(productsData.map(p => p.category))];
-    const featured = [];
-    
-    categories.forEach(category => {
-        const categoryProducts = productsData.filter(p => p.category === category);
-        
-        // Prioritize: isNew > in_stock > others
-        const sorted = categoryProducts.sort((a, b) => {
-            if (a.isNew && !b.isNew) return -1;
-            if (!a.isNew && b.isNew) return 1;
-            if (a.availability === 'in_stock' && b.availability !== 'in_stock') return -1;
-            if (a.availability !== 'in_stock' && b.availability === 'in_stock') return 1;
-            return 0;
-        });
-        
-        // Take first N products from each category
-        featured.push(...sorted.slice(0, productsPerCategory));
-    });
-    
-    return featured;
-}
-
-// Function to filter products by category
-function filterProductsByCategory(category) {
-    if (!category) return productsData;
-    return productsData.filter(p => p.category === category);
-}
-
-// Function to render featured products by category
-function renderFeaturedProducts() {
-    const container = document.getElementById('featured-products-container');
-    if (!container) return;
-    
-    const categories = [...new Set(productsData.map(p => p.category))];
-    container.innerHTML = '';
-    
-    // Sort categories for consistent display order
-    categories.sort();
-    
-    categories.forEach(category => {
-        const categoryProducts = productsData.filter(p => p.category === category);
-        
-        // Sort: isNew > in_stock > others, then take first 4
-        const sorted = categoryProducts.sort((a, b) => {
-            if (a.isNew && !b.isNew) return -1;
-            if (!a.isNew && b.isNew) return 1;
-            if (a.availability === 'in_stock' && b.availability !== 'in_stock') return -1;
-            if (a.availability !== 'in_stock' && b.availability === 'in_stock') return 1;
-            return 0;
-        });
-        
-        const featured = sorted.slice(0, 4);
-        if (featured.length === 0) return;
-        
-        const categorySection = document.createElement('div');
-        categorySection.className = 'mb-12';
-        // Ensure category label is properly formatted with capital letter
-        let categoryLabel = getCategoryLabel(category);
-        // Force capitalization if not already capitalized
-        if (!categoryLabel || categoryLabel.length === 0) {
-            categoryLabel = category;
-        }
-        // Ensure first letter is uppercase
-        if (categoryLabel && categoryLabel.length > 0 && categoryLabel.charAt(0) !== categoryLabel.charAt(0).toUpperCase()) {
-            categoryLabel = categoryLabel.split(' ').map(word => {
-                if (word.length === 0) return word;
-                return word.charAt(0).toUpperCase() + word.slice(1);
-            }).join(' ');
-        }
-        categorySection.innerHTML = `
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold text-agro-dark dark:text-white">
-                    ${categoryLabel}
-                </h3>
-                <button 
-                    type="button" 
-                    class="text-agro-green hover:text-agro-green-dark font-semibold flex items-center transition category-view-all-btn" 
-                    data-category="${category}"
-                >
-                    Виж всички
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </button>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 featured-products-grid" data-category="${category}">
-                ${featured.map(product => {
-                    const availability = getAvailabilityMeta(product);
-                    const cultures = formatCultures(product.culture);
-                    const featureTags = (product.features && Array.isArray(product.features) ? product.features : []).map(feature => `
-                        <span class="product-tag">${feature}</span>
-                    `).join('');
-                    const isPesticideCategory = ['фунгициди', 'инсектициди', 'хербициди'].includes(product.category);
-                    
-                    return `
-                        <article class="product-card relative flex h-full flex-col rounded-3xl border border-agro-light bg-white shadow-md transition hover:-translate-y-1 hover:shadow-2xl" data-category="${product.category}">
-                            <div class="absolute left-6 top-5 flex flex-wrap items-center gap-2">
-                                <span class="${availability.className}">${availability.label}</span>
-                            </div>
-                            <div class="absolute right-6 top-5">
-                                ${product.isNew ? '<span class="badge badge-info">Нов</span>' : ''}
-                            </div>
-                            <div class="product-media relative h-48 overflow-hidden rounded-3xl bg-agro-light/60 ${isPesticideCategory ? 'product-media-small' : ''}">
-                                <img src="${product.image}" alt="${product.name}" class="h-full w-full object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-agro-dark/10 via-transparent to-transparent"></div>
-                            </div>
-                            <div class="flex flex-1 flex-col gap-4 p-6">
-                                <div>
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="product-brand">${product.brand || 'Premium Selection'}</span>
-                                    </div>
-                                    <h3 class="text-xl font-bold text-agro-dark">${product.name}</h3>
-                                    <p class="product-desc mt-2 text-sm text-gray-600">${product.description}</p>
-                                </div>
-                                <div class="flex flex-wrap gap-2">
-                                    ${featureTags}
-                                </div>
-                                <div class="rounded-2xl bg-agro-light/60 p-4 text-sm text-gray-600">
-                                    <span class="font-semibold text-agro-dark">Подходящ за:</span> ${cultures}
-                                </div>
-                                <div class="mt-auto flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                                    <div>
-                                        <p class="text-xs uppercase tracking-wide text-gray-500">Цена</p>
-                                        <p class="text-2xl font-bold text-agro-green">${product.price.toFixed(2)} лв</p>
-                                        ${product.priceEur ? `<p class="text-sm text-gray-500">≈ ${product.priceEur.toFixed(2)} €</p>` : ''}
-                                        <p class="text-sm text-gray-500">/ ${product.unit}</p>
-                                    </div>
-                                    <div class="flex w-full flex-col gap-2 sm:w-48">
-                                        <button type="button" data-inquiry-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-primary">
-                                            <i class="fas fa-envelope mr-2"></i>Запитване
-                                        </button>
-                                        <div class="flex gap-2">
-                                            <button type="button" data-compare-btn data-product-id="${product.id}" class="product-btn-secondary flex-1 text-xs sm:text-sm whitespace-nowrap">
-                                                <i class="fas fa-balance-scale mr-1 sm:mr-2"></i><span class="hidden sm:inline">Сравни</span><span class="sm:hidden">Сравн.</span>
-                                            </button>
-                                            <button type="button" data-share-btn data-product-id="${product.id}" data-product-name="${product.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;')}" class="product-btn-secondary flex-1 text-xs sm:text-sm whitespace-nowrap">
-                                                <i class="fas fa-share-alt mr-1 sm:mr-2"></i><span class="hidden sm:inline">Сподели</span><span class="sm:hidden">Спод.</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    `;
-                }).join('')}
-            </div>
-        `;
-        container.appendChild(categorySection);
-    });
-    
-    // Add event listeners for "Виж всички" buttons
-    const viewAllButtons = container.querySelectorAll('.category-view-all-btn');
-    viewAllButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            showFullCatalog(category);
-        });
-    });
-}
-
 // Function to render products
 function renderProducts(products) {
     const grid = document.getElementById('products-grid');
     const noResults = document.getElementById('no-results');
     
-    if (!grid) {
-        console.error('Products grid element not found');
-        return;
-    }
+    if (!grid) return;
     
-    if (!products || products.length === 0) {
+    if (products.length === 0) {
         grid.classList.add('hidden');
-        if (noResults) {
-            noResults.classList.remove('hidden');
-        }
+        noResults.classList.remove('hidden');
         return;
     }
     
-    // Ensure grid is visible
     grid.classList.remove('hidden');
-    grid.style.display = ''; // Reset any inline display styles
-    if (noResults) {
-        noResults.classList.add('hidden');
-    }
+    noResults.classList.add('hidden');
     
     grid.innerHTML = products.map(product => {
         const availability = getAvailabilityMeta(product);
         const cultures = formatCultures(product.culture);
-        const featureTags = (product.features && Array.isArray(product.features) ? product.features : []).map(feature => `
+        const featureTags = product.features.map(feature => `
             <span class="product-tag">${feature}</span>
         `).join('');
         return `
@@ -2188,12 +1992,6 @@ function renderProducts(products) {
             </article>
         `;
     }).join('');
-    
-    // Ensure grid is still visible after rendering
-    if (grid.innerHTML.trim() !== '') {
-        grid.classList.remove('hidden');
-        grid.style.display = '';
-    }
 }
 
 // Function to filter products
@@ -2245,49 +2043,13 @@ function openInquiryModal(productName) {
     window.location.href = inquiryUrl;
 }
 
-// Function to show full catalog (optionally filtered by category)
-function showFullCatalog(category = '') {
-    const catalogSection = document.getElementById('catalog');
-    const grid = document.getElementById('products-grid');
-    const categorySelect = document.getElementById('category-filter');
-    
-    if (!catalogSection || !grid) return;
-    
-    // Set category filter if provided
-    if (category && categorySelect) {
-        categorySelect.value = category;
-    } else if (categorySelect) {
-        categorySelect.value = '';
-    }
-    
-    // Scroll to catalog
-    catalogSection.scrollIntoView({ behavior: 'smooth' });
-    
-    // Render all products (or filtered by category)
-    setTimeout(() => {
-        filterProducts();
-    }, 300);
-}
-
-// Make functions globally available
+// Make function globally available
 window.openInquiryModal = openInquiryModal;
-window.showFullCatalog = showFullCatalog;
 
 // Initialize products on page load
 document.addEventListener('DOMContentLoaded', function() {
-    // Render featured products on homepage
-    try {
-        renderFeaturedProducts();
-    } catch (error) {
-        console.error('Error rendering featured products:', error);
-    }
-    
-    // Initialize catalog section (hidden by default, shown when user clicks "Пълен каталог" or category)
-    const grid = document.getElementById('products-grid');
-    if (grid) {
-        // Initially hide the catalog section or show empty
-        grid.innerHTML = '';
-    }
+    // Render all products initially
+    renderProducts(productsData);
     
     // Add event listeners for filters
     const searchInput = document.getElementById('product-search');
@@ -2326,76 +2088,72 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryCards.forEach(card => {
         card.addEventListener('click', function() {
             const category = this.dataset.category;
-            showFullCatalog(category);
-        });
-    });
-    
-    // Add click handler for "Пълен каталог" button
-    const fullCatalogLinks = document.querySelectorAll('a[href="#catalog"]');
-    fullCatalogLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            showFullCatalog();
+            const categorySelect = document.getElementById('category-filter');
+            if (categorySelect) {
+                categorySelect.value = category;
+                filterProducts();
+                
+                // Scroll to catalog
+                const catalogSection = document.getElementById('catalog');
+                if (catalogSection) {
+                    catalogSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         });
     });
 
-    // Event delegation for inquiry and share buttons (for both catalog and featured products)
-    function handleProductButtonClick(e) {
-        // Handle inquiry button clicks
-        const inquiryBtn = e.target.closest('[data-inquiry-btn]');
-        if (inquiryBtn) {
-            e.preventDefault();
-            e.stopPropagation();
-            let productName = inquiryBtn.getAttribute('data-product-name');
-            if (!productName) {
-                const productId = inquiryBtn.getAttribute('data-product-id');
-                if (productId) {
-                    const product = productsData.find(p => p.id === parseInt(productId));
-                    if (product) {
-                        productName = product.name;
-                    }
-                }
-            }
-            if (productName) {
-                openInquiryModal(productName);
-            } else {
-                console.error('Product name not found');
-            }
-            return;
-        }
-        
-        // Handle share button clicks
-        const shareBtn = e.target.closest('[data-share-btn]');
-        if (shareBtn) {
-            e.preventDefault();
-            e.stopPropagation();
-            let productName = shareBtn.getAttribute('data-product-name');
-            if (!productName) {
-                const productId = shareBtn.getAttribute('data-product-id');
-                if (productId) {
-                    const product = productsData.find(p => p.id === parseInt(productId));
-                    if (product) {
-                        productName = product.name;
-                    }
-                }
-            }
-            if (productName && typeof shareProduct === 'function') {
-                shareProduct(productName);
-            }
-            return;
-        }
-    }
-    
-    // Add event listeners to both catalog grid and featured products container
+    // Event delegation for inquiry and share buttons
     const productsGrid = document.getElementById('products-grid');
-    const featuredContainer = document.getElementById('featured-products-container');
-    
     if (productsGrid) {
-        productsGrid.addEventListener('click', handleProductButtonClick);
-    }
-    
-    if (featuredContainer) {
-        featuredContainer.addEventListener('click', handleProductButtonClick);
+        productsGrid.addEventListener('click', function(e) {
+            // Handle inquiry button clicks
+            const inquiryBtn = e.target.closest('[data-inquiry-btn]');
+            if (inquiryBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Try to get product name from data attribute, or find by ID
+                let productName = inquiryBtn.getAttribute('data-product-name');
+                if (!productName) {
+                    const productId = inquiryBtn.getAttribute('data-product-id');
+                    if (productId) {
+                        const product = productsData.find(p => p.id === parseInt(productId));
+                        if (product) {
+                            productName = product.name;
+                        }
+                    }
+                }
+                console.log('Inquiry button clicked for product:', productName);
+                if (productName) {
+                    openInquiryModal(productName);
+                } else {
+                    console.error('Product name not found');
+                }
+                return;
+            }
+            
+            // Handle share button clicks
+            const shareBtn = e.target.closest('[data-share-btn]');
+            if (shareBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                let productName = shareBtn.getAttribute('data-product-name');
+                if (!productName) {
+                    const productId = shareBtn.getAttribute('data-product-id');
+                    if (productId) {
+                        const product = productsData.find(p => p.id === parseInt(productId));
+                        if (product) {
+                            productName = product.name;
+                        }
+                    }
+                }
+                if (productName && typeof shareProduct === 'function') {
+                    shareProduct(productName);
+                }
+                return;
+            }
+        });
+    } else {
+        console.error('Products grid not found');
     }
 });
 

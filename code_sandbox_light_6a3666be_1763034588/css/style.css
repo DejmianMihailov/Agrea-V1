@@ -284,6 +284,23 @@ nav a:hover::after {
     height: auto;
 }
 
+/* Смаляване на снимките на фунгициди, инсектициди и хербициди */
+.product-card[data-category="фунгициди"] .product-media,
+.product-card[data-category="инсектициди"] .product-media,
+.product-card[data-category="хербициди"] .product-media {
+    padding: 1.5rem;
+}
+
+.product-card[data-category="фунгициди"] .product-media img,
+.product-card[data-category="инсектициди"] .product-media img,
+.product-card[data-category="хербициди"] .product-media img {
+    object-fit: contain !important;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
 .dark .product-media {
     background: rgba(30, 41, 59, 0.6);
 }
@@ -358,7 +375,6 @@ nav a:hover::after {
     font-weight: 600;
     color: var(--agro-dark);
     letter-spacing: 0.04em;
-    text-transform: uppercase;
 }
 
 .product-brand {
@@ -566,14 +582,12 @@ button:hover::before,
 
 /* Scroll animations */
 section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 1;
+    transform: none;
 }
 
 section.animate-fade-in {
-    opacity: 1;
-    transform: translateY(0);
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
 /* Custom scrollbar */
@@ -988,4 +1002,29 @@ i {
 /* Smooth appearance on load */
 body.loaded {
     animation: fadeIn 0.5s ease;
+}
+
+/* Featured products section */
+#featured-products-container {
+    margin-top: 2rem;
+}
+
+#featured-products-container > div {
+    margin-bottom: 3rem;
+}
+
+.category-view-all-btn {
+    transition: all 0.3s ease;
+}
+
+.category-view-all-btn:hover {
+    transform: translateX(5px);
+}
+
+.category-view-all-btn i {
+    transition: transform 0.3s ease;
+}
+
+.category-view-all-btn:hover i {
+    transform: translateX(3px);
 }
