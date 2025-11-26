@@ -79,11 +79,11 @@ function updateComparisonUI() {
         if (isInComparison) {
             btn.classList.add('bg-agro-green', 'text-white');
             btn.classList.remove('product-btn-secondary');
-            btn.innerHTML = '<i class="fas fa-check mr-1 sm:mr-2"></i><span class="hidden sm:inline">Добавен</span><span class="sm:hidden">✓</span>';
+            btn.innerHTML = '<i class="fas fa-check mr-0.5 sm:mr-1"></i><span class="hidden sm:inline">Добавен</span><span class="sm:hidden">✓</span>';
         } else {
             btn.classList.remove('bg-agro-green', 'text-white');
             btn.classList.add('product-btn-secondary');
-            btn.innerHTML = '<i class="fas fa-balance-scale mr-1 sm:mr-2"></i><span class="hidden sm:inline">Сравни</span><span class="sm:hidden">Сравн.</span>';
+            btn.innerHTML = '<i class="fas fa-balance-scale mr-0.5 sm:mr-1"></i><span class="hidden sm:inline">Сравни</span><span class="sm:hidden">Сравн.</span>';
         }
     });
 }
