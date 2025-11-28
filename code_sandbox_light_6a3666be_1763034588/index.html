@@ -229,8 +229,15 @@
                 </div>
                     <div class="relative">
                     <div class="hero-visual relative overflow-hidden rounded-[3rem] border border-white/50 shadow-2xl dark:border-slate-700">
-                        <img src="images/products/seeds.jpg" alt="Земеделски полета в изгрев" class="h-full w-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-agro-dark/40 via-transparent to-transparent"></div>
+                        <img id="hero-product-image" src="images/products/seeds.jpg" alt="Продукти от каталога" class="hero-product-image h-full w-full object-cover transition-opacity duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-agro-dark/40 via-transparent to-transparent pointer-events-none"></div>
+                        <div id="hero-product-label" class="hero-product-label">Продукти от каталога</div>
+                        <button type="button" id="hero-slider-prev" class="hero-slider-btn hero-slider-btn--prev" aria-label="Предишен продукт">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button type="button" id="hero-slider-next" class="hero-slider-btn hero-slider-btn--next" aria-label="Следващ продукт">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                     <div class="hero-floating-card hidden md:flex items-center gap-4 rounded-2xl bg-white/90 px-6 py-5 shadow-xl backdrop-blur-lg dark:bg-slate-800/90 dark:text-gray-200">
                         <span class="flex h-12 w-12 items-center justify-center rounded-full bg-agro-green/15 text-agro-green text-xl"><i class="fas fa-chart-line"></i></span>
@@ -373,7 +380,7 @@
     </section>
 
     <!-- Categories Section -->
-    <section class="py-16 bg-white transition-colors duration-300 dark:bg-slate-900">
+    <section id="products-by-category" class="py-16 bg-white transition-colors duration-300 dark:bg-slate-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-agro-dark mb-12 dark:text-white">
                 Продукти по категории
@@ -1434,6 +1441,14 @@
             Свържи се в WhatsApp
         </span>
     </a>
+
+    <!-- Scroll to Products Button -->
+    <button id="scroll-to-products" class="hidden fixed bottom-44 right-8 bg-agro-green text-white w-14 h-14 rounded-full shadow-lg hover:bg-agro-green-dark transition z-50 flex items-center justify-center group" aria-label="Продукти по категории">
+        <i class="fas fa-th-large text-xl"></i>
+        <span class="absolute right-full mr-3 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
+            Продукти по категории
+        </span>
+    </button>
 
     <!-- Back to Top Button -->
     <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-agro-green text-white w-12 h-12 rounded-full shadow-lg hover:bg-agro-green-dark transition z-50">

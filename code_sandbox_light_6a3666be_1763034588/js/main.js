@@ -116,6 +116,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Scroll to products button
+    const scrollToProductsBtn = document.getElementById('scroll-to-products');
+    const productsSection = document.getElementById('products-by-category');
+    
+    if (scrollToProductsBtn && productsSection) {
+        window.addEventListener('scroll', function() {
+            const productsSectionTop = productsSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            // Show button when user has scrolled past the products section
+            if (window.pageYOffset > 500 && productsSectionTop < -windowHeight) {
+                scrollToProductsBtn.classList.remove('hidden');
+            } else {
+                scrollToProductsBtn.classList.add('hidden');
+            }
+        });
+        
+        scrollToProductsBtn.addEventListener('click', function() {
+            const offset = 80; // Account for fixed header
+            const targetPosition = productsSection.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
     // Back to top button
     const backToTopBtn = document.getElementById('back-to-top');
     
@@ -165,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupFaqAccordion();
     setupScrollToCatalog();
     setupCookieBanner();
+    initHeroProductSlider();
 });
 
 // Setup form handlers
@@ -626,4 +654,104 @@ function setupCookieBanner() {
             cookieBanner.classList.add('hidden');
         });
     }
+}
+
+// Hero product slider (hero image + navigation buttons)
+function initHeroProductSlider() {
+    const heroImage = document.getElementById('hero-product-image');
+    const heroLabel = document.getElementById('hero-product-label');
+    const prevBtn = document.getElementById('hero-slider-prev');
+    const nextBtn = document.getElementById('hero-slider-next');
+    
+    if (!heroImage || !heroLabel || !prevBtn || !nextBtn) {
+        return;
+    }
+    
+    const fallbackProducts = [
+        { src: 'images/products/proplant-10ml.png', alt: 'Проплант' },
+        { src: 'images/products/topaz-20ml.png', alt: 'Топаз' },
+        { src: 'images/products/quadris-25ml.png', alt: 'Куадрис' },
+        { src: 'images/products/reviona-50ml.png', alt: 'Ревиона' },
+        { src: 'images/products/sivanto-prime-20ml.png', alt: 'Сиванто Prime' },
+        { src: 'images/products/roundup-100ml.png', alt: 'Раундап 100 мл' },
+        { src: 'images/products/daramun-20ml.png', alt: 'Дарамун' },
+        { src: 'images/products/signum-40g.png', alt: 'Сигнум' },
+        { src: 'images/products/vivando-20ml.png', alt: 'Вивандо' },
+        { src: 'images/products/flint-max-5g.png', alt: 'Флинт Макс' }
+    ];
+    
+    const heroProducts = getHeroSliderProducts() || fallbackProducts;
+    if (!heroProducts.length) return;
+    
+    let currentIndex = 0;
+    let autoSlideTimer;
+    
+    function getHeroSliderProducts() {
+        if (typeof productsData === 'undefined' || !Array.isArray(productsData)) {
+            return null;
+        }
+        
+        const uniqueProducts = [];
+        const seen = new Set();
+        
+        productsData.forEach(product => {
+            if (uniqueProducts.length >= 12) {
+                return;
+            }
+            
+            const isValidImage = product.image &&
+                product.image.startsWith('images/products/') &&
+                product.image !== 'images/products/pesticide.png';
+            
+            if (isValidImage && !seen.has(product.image)) {
+                uniqueProducts.push({
+                    src: product.image,
+                    alt: product.name || 'Продукт от каталога'
+                });
+                seen.add(product.image);
+            }
+        });
+        
+        return uniqueProducts.length ? uniqueProducts : null;
+    }
+    
+    function showSlide(index) {
+        if (!heroProducts[index]) return;
+        
+        heroImage.style.opacity = '0';
+        
+        setTimeout(() => {
+            heroImage.src = heroProducts[index].src;
+            heroImage.alt = heroProducts[index].alt;
+            heroLabel.textContent = heroProducts[index].alt;
+            heroImage.style.opacity = '1';
+        }, 300);
+    }
+    
+    function goToSlide(step = 1) {
+        currentIndex = (currentIndex + step + heroProducts.length) % heroProducts.length;
+        showSlide(currentIndex);
+        restartAutoSlide();
+    }
+    
+    function restartAutoSlide() {
+        if (autoSlideTimer) {
+            clearInterval(autoSlideTimer);
+        }
+        autoSlideTimer = setInterval(() => goToSlide(1), 5000);
+    }
+    
+    prevBtn.addEventListener('click', () => goToSlide(-1));
+    nextBtn.addEventListener('click', () => goToSlide(1));
+    
+    // Pause on hover for better UX
+    heroImage.addEventListener('mouseenter', () => {
+        if (autoSlideTimer) {
+            clearInterval(autoSlideTimer);
+        }
+    });
+    heroImage.addEventListener('mouseleave', restartAutoSlide);
+    
+    showSlide(currentIndex);
+    restartAutoSlide();
 }

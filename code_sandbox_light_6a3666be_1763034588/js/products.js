@@ -17,7 +17,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/proplant-10ml.png"
     },
     {
         id: 2,
@@ -33,7 +33,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/aliette-flash-30g.png"
     },
     {
         id: 3,
@@ -49,7 +49,7 @@ const productsData = [
         brand: "DuPont",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/viteni-triplo-45g.png"
     },
     {
         id: 4,
@@ -65,7 +65,7 @@ const productsData = [
         brand: "BASF",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/corsair-5g.png"
     },
     {
         id: 5,
@@ -81,7 +81,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/flint-max-5g.png"
     },
     {
         id: 6,
@@ -97,7 +97,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/daramun-20ml.png"
     },
     {
         id: 7,
@@ -113,7 +113,7 @@ const productsData = [
         brand: "BASF",
         availability: "in_stock",
         isNew: true,
-        image: "images/products/pesticide.png"
+        image: "images/products/reviona-50ml.png"
     },
     {
         id: 8,
@@ -129,7 +129,7 @@ const productsData = [
         brand: "BASF",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/signum-40g.png"
     },
     {
         id: 9,
@@ -145,7 +145,7 @@ const productsData = [
         brand: "DuPont",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/armetil-c-125g.png"
     },
     {
         id: 10,
@@ -161,7 +161,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/ridomil-gold-r-50g.png"
     },
     {
         id: 11,
@@ -177,7 +177,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/ridomil-gold-r-100g.png"
     },
     {
         id: 12,
@@ -193,7 +193,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/score-20ml.png"
     },
     {
         id: 13,
@@ -209,7 +209,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/quadris-25ml.png"
     },
     {
         id: 14,
@@ -225,7 +225,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/topaz-20ml.png"
     },
     {
         id: 15,
@@ -241,7 +241,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sinstar-20ml.png"
     },
     {
         id: 16,
@@ -257,11 +257,11 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/vivando-20ml.png"
     },
     {
         id: 17,
-        name: "Дивкор",
+        name: "Дифкор",
         category: "фунгициди",
         culture: ["лозя", "овощни"],
         price: 6.80,
@@ -273,7 +273,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/divcor-20ml.png"
     },
     {
         id: 18,
@@ -289,7 +289,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/infinito-30ml.png"
     },
     {
         id: 19,
@@ -305,7 +305,7 @@ const productsData = [
         brand: "BASF",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/kumulus-20g.png"
     },
     {
         id: 20,
@@ -321,7 +321,7 @@ const productsData = [
         brand: "BASF",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/kumulus-200g.png"
     },
     {
         id: 21,
@@ -337,7 +337,7 @@ const productsData = [
         brand: "DuPont",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/funguran-150g.png"
     },
     {
         id: 22,
@@ -353,7 +353,7 @@ const productsData = [
         brand: "Nufarm",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/champion-15g.png"
     },
     {
         id: 23,
@@ -369,7 +369,7 @@ const productsData = [
         brand: "Nufarm",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/champion-75g.png"
     },
     {
         id: 24,
@@ -385,7 +385,7 @@ const productsData = [
         brand: "Nufarm",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/champion-150g.png"
     },
     {
         id: 25,
@@ -401,7 +401,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/bordo-mix-50g.png"
     },
     {
         id: 26,
@@ -417,7 +417,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/bordo-mix-100g.png"
     },
     {
         id: 27,
@@ -433,7 +433,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/bordo-mix-300g.png"
     },
     {
         id: 28,
@@ -449,7 +449,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sin-kamuk-1kg.png"
     },
     {
         id: 29,
@@ -481,7 +481,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/hidratna-var-1kg.png"
     },
 
     // ИНСЕКТИЦИДИ
@@ -492,14 +492,14 @@ const productsData = [
         culture: ["зеленчуци", "овощни"],
         price: 7.00,
         priceEur: 3.57,
-        unit: "2 мл",
+        unit: "20 мл",
         description: "Инсектицид за борба с вредители",
         features: ["Системен", "Бързо действие"],
         activeSubstance: "Тиаметоксам",
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/icon-20ml.png"
     },
     {
         id: 32,
@@ -515,7 +515,7 @@ const productsData = [
         brand: "Nippon Soda",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sniper-20ml.png"
     },
     {
         id: 33,
@@ -524,14 +524,14 @@ const productsData = [
         culture: ["зеленчуци", "овощни"],
         price: 6.80,
         priceEur: 3.47,
-        unit: "20 мл",
+        unit: "25 мл",
         description: "Инсектицид за борба с вредители",
         features: ["Системен", "Ефективен"],
         activeSubstance: "Ацетамиприд",
         brand: "Nippon Soda",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/mastercid-25ml.png"
     },
     {
         id: 34,
@@ -547,7 +547,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/valmek-20ml.png"
     },
     {
         id: 35,
@@ -563,7 +563,7 @@ const productsData = [
         brand: "DuPont",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/nisoran-20ml.jpg"
     },
     {
         id: 36,
@@ -579,7 +579,7 @@ const productsData = [
         brand: "Bayer",
         availability: "preorder",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/abanto-20ml.png"
     },
     {
         id: 37,
@@ -595,7 +595,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: true,
-        image: "images/products/sivanto.jpg"
+        image: "images/products/sivanto-prime-20ml.png"
     },
     {
         id: 38,
@@ -611,7 +611,7 @@ const productsData = [
         brand: "Adama",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/colombo-60g.png"
     },
     {
         id: 39,
@@ -627,7 +627,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/agrimetal-100g.png"
     },
     {
         id: 40,
@@ -643,7 +643,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/lebron-100g.png"
     },
     {
         id: 41,
@@ -659,7 +659,7 @@ const productsData = [
         brand: "DuPont",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/nematorin-100g.png"
     },
     {
         id: 42,
@@ -675,7 +675,7 @@ const productsData = [
         brand: "Adama",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/lamsha-8-gr.png"
     },
     {
         id: 43,
@@ -691,7 +691,7 @@ const productsData = [
         brand: "Corteva",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/coragen-2ml.png"
     },
     {
         id: 44,
@@ -707,11 +707,11 @@ const productsData = [
         brand: "Dow",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/tepeki-1.5g.jpg"
     },
     {
         id: 45,
-        name: "Муспилан",
+        name: "Моспилан",
         category: "инсектициди",
         culture: ["зеленчуци", "овощни"],
         price: 1.80,
@@ -727,7 +727,7 @@ const productsData = [
     },
     {
         id: 46,
-        name: "Муспилан",
+        name: "Моспилан",
         category: "инсектициди",
         culture: ["зеленчуци", "овощни"],
         price: 3.00,
@@ -739,11 +739,11 @@ const productsData = [
         brand: "Nippon Soda",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/mospilan.png"
+        image: "images/products/mospilan-3g.png"
     },
     {
         id: 47,
-        name: "Муспилан",
+        name: "Моспилан",
         category: "инсектициди",
         culture: ["зеленчуци", "овощни"],
         price: 5.80,
@@ -755,7 +755,7 @@ const productsData = [
         brand: "Nippon Soda",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/mospilan.png"
+        image: "images/products/mospilan-6g.png"
     },
     {
         id: 48,
@@ -771,7 +771,7 @@ const productsData = [
         brand: "Nippon Soda",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/alverde-20ml.png"
     },
     {
         id: 49,
@@ -787,7 +787,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/dena-20ml.png"
     },
     {
         id: 50,
@@ -803,7 +803,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/dena-50ml.png"
     },
     {
         id: 51,
@@ -819,7 +819,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/deka-20ml.png"
     },
     {
         id: 52,
@@ -835,7 +835,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/deka-50ml.png"
     },
     {
         id: 53,
@@ -851,7 +851,7 @@ const productsData = [
         brand: "Syngenta",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/karate-zeon-2ml.png"
     },
     {
         id: 54,
@@ -867,7 +867,7 @@ const productsData = [
         brand: "Sumitomo",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sumicidin-20ml.png"
     },
     {
         id: 55,
@@ -883,7 +883,7 @@ const productsData = [
         brand: "Sumitomo",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sumicidin-50ml.png"
     },
     {
         id: 56,
@@ -899,7 +899,7 @@ const productsData = [
         brand: "Sumitomo",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sumicidin-100ml.png"
     },
     {
         id: 57,
@@ -915,7 +915,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/meteor-20ml.png"
     },
     {
         id: 58,
@@ -931,11 +931,11 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/proximo-20ml.png"
     },
     {
         id: 59,
-        name: "Акарзин 300",
+        name: "Акаризин",
         category: "инсектициди",
         culture: ["зеленчуци", "овощни"],
         price: 5.80,
@@ -947,7 +947,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/akarzin-300.png"
     },
     {
         id: 60,
@@ -963,7 +963,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/insektitsidni-lenti.png"
     },
 
     // ХЕРБИЦИДИ
@@ -981,7 +981,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/roundup-100ml.png"
     },
     {
         id: 62,
@@ -997,7 +997,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/roundup-200ml.png"
     },
     {
         id: 63,
@@ -1013,7 +1013,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/roundup-0.5l.png"
     },
     {
         id: 64,
@@ -1029,7 +1029,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/roundup-1l.png"
     },
     {
         id: 65,
@@ -1045,7 +1045,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/nasa-0.5l.png"
     },
     {
         id: 66,
@@ -1061,7 +1061,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/nasa-1l.png"
     },
     {
         id: 67,
@@ -1077,7 +1077,7 @@ const productsData = [
         brand: "Generic",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/taifun-1l.png"
     },
     {
         id: 68,
@@ -1093,7 +1093,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/magneto-100ml.png"
     },
     {
         id: 69,
@@ -1109,7 +1109,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sharpen-100ml.png"
     },
     {
         id: 70,
@@ -1125,7 +1125,7 @@ const productsData = [
         brand: "Bayer",
         availability: "in_stock",
         isNew: false,
-        image: "images/products/pesticide.png"
+        image: "images/products/sharpen-1l.png"
     },
 
     // ТОРОВЕ
@@ -2041,7 +2041,7 @@ function renderFeaturedProducts() {
                     
                     return `
                         <article class="product-card relative flex h-full flex-col rounded-3xl border border-agro-light bg-white shadow-md transition hover:-translate-y-1 hover:shadow-2xl" data-category="${product.category}">
-                            <div class="absolute left-6 top-5 flex flex-wrap items-center gap-2">
+                            <div class="absolute left-6 top-3 z-10 flex flex-wrap items-center gap-2">
                                 <span class="${availability.className}">${availability.label}</span>
                             </div>
                             <div class="absolute right-6 top-5">
@@ -2138,7 +2138,7 @@ function renderProducts(products) {
         `).join('');
         return `
             <article class="product-card relative flex h-full flex-col rounded-3xl border border-agro-light bg-white shadow-md transition hover:-translate-y-1 hover:shadow-2xl" data-category="${product.category}">
-                <div class="absolute left-6 top-5 flex flex-wrap items-center gap-2">
+                <div class="absolute left-6 top-3 z-10 flex flex-wrap items-center gap-2">
                     <span class="${availability.className}">${availability.label}</span>
                 </div>
                 <div class="absolute right-6 top-5">

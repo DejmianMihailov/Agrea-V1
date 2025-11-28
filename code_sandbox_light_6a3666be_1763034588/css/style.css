@@ -169,11 +169,101 @@ nav a:hover::after {
 .hero-visual {
     min-height: 420px;
     transition: transform 0.3s ease;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-product-image {
+    transition: opacity 0.7s ease-in-out;
+    object-fit: contain;
+    object-position: center;
+    background: #f5f5f5;
+}
+
+.dark .hero-product-image {
+    background: #1e293b;
+}
+
+.hero-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--agro-dark);
+    box-shadow: 0 10px 30px rgba(44, 44, 44, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    z-index: 15;
+}
+
+.hero-slider-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 15px 35px rgba(44, 44, 44, 0.22);
+}
+
+.hero-slider-btn:focus-visible {
+    outline: 3px solid var(--agro-green);
+    outline-offset: 3px;
+}
+
+.hero-slider-btn--prev {
+    left: 1.5rem;
+}
+
+.hero-slider-btn--next {
+    right: 1.5rem;
+}
+
+.dark .hero-slider-btn {
+    background: rgba(15, 23, 42, 0.85);
+    color: #fff;
+}
+
+.hero-product-label {
+    position: absolute;
+    bottom: 1.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--agro-dark);
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 12px 30px rgba(44, 44, 44, 0.15);
+    z-index: 14;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.hero-product-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--agro-green);
+    display: inline-block;
+}
+
+.dark .hero-product-label {
+    background: rgba(15, 23, 42, 0.9);
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
 .hero-floating-card {
     position: absolute;
-    bottom: -3rem;
+    bottom: -4.5rem;
     left: 2rem;
     box-shadow: 0 20px 45px rgba(44, 44, 44, 0.12);
 }
@@ -716,6 +806,19 @@ img:hover {
     border-radius: 12px;
     font-size: 12px;
     font-weight: 600;
+    position: relative;
+    z-index: 10;
+}
+
+/* Ensure availability badge is always visible */
+.product-card .absolute.left-6.top-3 {
+    z-index: 20;
+    pointer-events: none;
+}
+
+.product-card .absolute.left-6.top-3 .badge {
+    pointer-events: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .badge-success {
